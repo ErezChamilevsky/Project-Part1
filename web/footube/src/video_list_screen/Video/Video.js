@@ -1,14 +1,15 @@
 import "./Video.css"
-function Video({id, title, artist, publication_date ,views, category}){
+import cookies from "../../data/pictures/cookies.jpg"
+function Video({id,img, title, artist, publication_date ,views, category}){
 return(
     <a href="video.html?id ={id}">
-    <div className ="video">
-    <div>
-            <h3>{title}</h3>
-            <span>{artist}</span>, <time>{publication_date}</time>
+    <div class = "video_detail">
+    <img class = "video_photo" src={cookies}/>
+            <div>{title}</div>
+            <div>{artist}</div>
+            <time>{publication_date}</time>
             <div>{category}</div>
             <div>{views}</div>
-    </div>
     </div>
 </a>
 );
