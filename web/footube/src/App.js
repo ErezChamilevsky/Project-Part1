@@ -1,7 +1,7 @@
 
 import './App.css';
 import Vid_list from './video_list_screen/vid_list/Vid_list';
-import Sidebar from './video_list_screen/sidebar/sideBar';
+import SideBar from './video_list_screen/sidebar/SideBar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
@@ -9,7 +9,8 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 function App() {
   return (
     <Router>
-    <div className='screen_layout'>
+      <div className="screen_layout">
+      <SideBar />
       <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between align-items-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
@@ -17,7 +18,6 @@ function App() {
     <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
   </svg>
     Home 
-    <span class="badge text-bg-primary rounded-pill">14</span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn" viewBox="0 0 16 16">
@@ -25,25 +25,23 @@ function App() {
     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
   </svg>
     Shorts
-    <span class="badge text-bg-primary rounded-pill">2</span>
   </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
   </svg>
       Explore
-    <span class="badge text-bg-primary rounded-pill">1</span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-video3" viewBox="0 0 16 16">
   <path d="M14 9.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-6 5.7c0 .8.8.8.8.8h6.4s.8 0 .8-.8-.8-3.2-4-3.2-4 2.4-4 3.2"/>
   <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h5.243c.122-.326.295-.668.526-1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v7.81c.353.23.656.496.91.783Q16 12.312 16 12V4a2 2 0 0 0-2-2z"/>
 </svg>
-     Subscri
-    <span class="badge text-bg-primary rounded-pill">14</span>
+     Subscribe
   </li>
 </ul>
 <Vid_list />
+
 </div>
 </Router>
   );

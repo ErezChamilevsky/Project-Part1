@@ -1,0 +1,6 @@
+.form-inline{
+display: flex;
+flex-direction: row;
+margin-left: 400px;
+width : 500px;
+}

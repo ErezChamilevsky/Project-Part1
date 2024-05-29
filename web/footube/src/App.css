@@ -37,7 +37,11 @@
   }
 }
 .screen_layout > div{
-  display:inline-block
+  flex-direction: row;
+  display:flex;
   }
-  
+  .Sidebar{
+    align-items: center;
+    justify-content: center;
+  }
   
