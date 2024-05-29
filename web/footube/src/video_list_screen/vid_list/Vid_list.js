@@ -10,7 +10,8 @@ return(
     <div class = "video_list">{
         videosList.map((video)=>
             <div>
-        <Video {...video}/>
+                <Video {...video}/>
+                
         </div>
 )
 }</div>

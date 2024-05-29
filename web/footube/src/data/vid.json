@@ -1,7 +1,7 @@
 [
     { 
         "id" : 1,
-        "img" : "./pictures/sports.jpg", 
+        "img" : "./sports.jpg", 
         "title" : "World's smallest FooFOO Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Mystory",
@@ -10,7 +10,7 @@
     },
     { 
         "id" : 2,
-        "img" : "./pictures/cookies.jpg", 
+        "img" : "./cookies.jpg", 
         "title" : "World's second smallest BarBar Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -19,7 +19,7 @@
     },
     { 
         "id" : 3,
-        "img" : "./pictures/cookies.jpg", 
+        "img" :"./cookies.jpg", 
         "title" : "Simple Song",
         "author" : "Asher Shlomy",
         "category" : "Country",
@@ -28,7 +28,7 @@
     },
     { 
         "id" : 4,
-        "img" : "./pictures/cookies.jpg", 
+        "img" : "./sports.jpg", 
         "title" : "World's second smallest BarBar Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -37,7 +37,7 @@
     },
     { 
         "id" : 5,
-        "img" : "./pictures/cookies.jpg", 
+        "img" : "./cookies.jpg", 
         "title" : "World's second smallest BarBar Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -46,7 +46,7 @@
     },
     { 
         "id" : 6,
-        "img" : "./pictures/cookies.jpg", 
+        "img" : "./sports.jpg", 
         "title" : "World's second smallest BarBar Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -55,7 +55,7 @@
     },
     { 
         "id" : 7,
-        "img" : "./pictures/cookies.jpg", 
+        "img" : "./sports.jpg", 
         "title" : "World's second smallest BarBar Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -64,7 +64,7 @@
     },
     { 
         "id" : 8,
-        "img" : "./pictures/cookies.jpg", 
+        "img" : "./sports.jpg", 
         "title" : "World's second smallest BarBar Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -73,7 +73,7 @@
     },
     { 
         "id" : 9,
-        "img" : "./pictures/cookies.jpg", 
+        "img" : "./cookies.jpg", 
         "title" : "World's second smallest BarBar Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -82,7 +82,7 @@
     },
     { 
         "id" : 10,
-        "img" : "./pictures/cookies.jpg", 
+        "img" : "./cookies.jpg", 
         "title" : "World's second smallest BarBar Created Ever",
         "author" : "Barrrr Cazeron",
         "category" : "Nature",
