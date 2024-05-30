@@ -46,5 +46,9 @@
     justify-content: center;
   }
 .list-group-item{
-  width : 50px;
+  width : 170px;
+}
+.list-group-item:hover{
+background-color: lightgray;
+cursor: pointer;
 }

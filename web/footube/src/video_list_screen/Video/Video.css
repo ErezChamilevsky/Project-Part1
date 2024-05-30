@@ -2,6 +2,9 @@
     font-size: 10px;
     flex-direction: row;
 }
+.card{
+    border: none;
+}
 .card-text{
     text-align: center;
 }
@@ -9,11 +12,14 @@
     background-color:transparent;
 }
 .card-img-top {
-    width: 250px;
-    height: 190px;
+    width: 350px;
+    height: 100px;
     object-fit: cover;
   }
   .video{
-    width: 250px;
-    height: 190px;
+    width: 350px;
+    height: 50px;
   }
+  .card{
+    border: none;
+}
