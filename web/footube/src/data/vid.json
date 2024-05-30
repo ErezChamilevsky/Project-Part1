@@ -1,7 +1,8 @@
 [
     { 
         "id" : 1,
-        "img" : "./sports.jpg", 
+        "img" : "./Ronaldo_interview.png",
+        "video_src": "./Ronaldo_interview.mp4", 
         "title" : "World's smallest FooFOO Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Mystory",
@@ -10,7 +11,8 @@
     },
     { 
         "id" : 2,
-        "img" : "./cookies.jpg", 
+        "img" : "./counter.png", 
+        "video_src" : "./counter.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -19,16 +21,18 @@
     },
     { 
         "id" : 3,
-        "img" :"./cookies.jpg", 
-        "title" : "Simple Song",
-        "artist" : "Asher Shlomy",
+        "img" :"./madrid.png", 
+        "video_src" : "./Madrid-in-a-nutshell.mp4",
+        "title" : "Madrid in a nutshell",
+        "artist" : "Jhon the Tourist",
         "category" : "Country",
         "publication_date" : "2023-06-02",
         "views" : "25K"
     },
     { 
         "id" : 4,
-        "img" : "./sports.jpg", 
+        "img" : "./40_years.png", 
+        "video_src" : "./One_year_in_40_seconds.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -37,7 +41,8 @@
     },
     { 
         "id" : 5,
-        "img" : "./cookies.jpg", 
+        "img" : "./TED_talk.png", 
+        "video_src" : "./TED-talk.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -46,7 +51,8 @@
     },
     { 
         "id" : 6,
-        "img" : "./sports.jpg", 
+        "img" : "./Ronaldo_interview.png", 
+        "video_src" : "./Ronaldo_interview.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -56,6 +62,7 @@
     { 
         "id" : 7,
         "img" : "./sports.jpg", 
+        "video_src" : "./Ronaldo_interview.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -64,8 +71,9 @@
     },
     { 
         "id" : 8,
-        "img" : "./sports.jpg", 
-        "title" : "World's second smallest BarBar Created Ever",
+        "img" : "./Ronaldo_interview.png", 
+        "video_src" : "./Ronaldo_interview.mp4",
+        "title" : "Interview vith Cristioano Ronaldo",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
         "publication_date" : "1920-10-01",
@@ -74,6 +82,7 @@
     { 
         "id" : 9,
         "img" : "./cookies.jpg", 
+        "video_src" : "./Ronaldo_interview.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -83,6 +92,7 @@
     { 
         "id" : 10,
         "img" : "./cookies.jpg", 
+        "video_src" : "./Ronaldo_interview.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",

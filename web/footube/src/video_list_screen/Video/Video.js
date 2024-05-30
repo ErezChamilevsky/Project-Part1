@@ -1,6 +1,6 @@
 import "./Video.css"
 import { Link } from "react-router-dom";
-function Video({id,img, title, artist, publication_date ,views, category}){
+function Video({id,img, title, artist, publication_date ,views, category, video_src}){
 return(
     <div class="card" styles="width: 18rem">
         <Link to = "html.?id{id}">

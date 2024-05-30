@@ -9,7 +9,11 @@
     background-color:transparent;
 }
 .card-img-top {
-    width: 100%;
-    height: auto;
+    width: 250px;
+    height: 190px;
     object-fit: cover;
+  }
+  .video{
+    width: 250px;
+    height: 190px;
   }
