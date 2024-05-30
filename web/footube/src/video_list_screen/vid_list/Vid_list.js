@@ -7,14 +7,15 @@ import { useState } from 'react';
 function Vid_list(){
 const [videosList, setVideoList] = useState(videos);
 return(
-    <div class = "video_list">{
+    <div class="row row-cols-1 row-cols-md-4 g-6">{
         videosList.map((video)=>
-            <div>
+            <div class="col">
                 <Video {...video}/>
-                
-        </div>
+                </div>
 )
-}</div>
+}
+</div>
 ); 
+
 }
 export default Vid_list;

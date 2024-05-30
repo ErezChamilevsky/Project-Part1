@@ -1,7 +1,7 @@
 
 import './App.css';
 import Vid_list from './video_list_screen/vid_list/Vid_list';
-import SideBar from './video_list_screen/sidebar/SideBar';
+import SideBar from  "./video_list_screen/sidebar/SideBar";
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
@@ -9,8 +9,9 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 function App() {
   return (
     <Router>
+      <div class="container-fluid">
        <SideBar />
-      <div className="screen_layout" styles="overflow:hidden">
+      <div className="screen_layout">
       <Vid_list class = "video-list" />
       <ul class="list-group" >
   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -43,6 +44,7 @@ function App() {
 </ul>
 
 
+</div>
 </div>
 </Router>
   );
