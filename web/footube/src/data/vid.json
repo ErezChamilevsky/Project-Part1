@@ -3,7 +3,7 @@
         "id" : 1,
         "img" : "./Spread_Happines.png", 
         "video_src" : "./Spread_Happines.mp4",
-        "title" : "World's smallest FooFOO Created Ever",
+        "title" : "Spread Happines- simple and meaningful animation",
         "artist" : "Barrrr Cazeron",
         "category" : "Mystory",
         "publication_date" : "2020-10-01",
@@ -13,7 +13,7 @@
         "id" : 2,
         "img" : "./counter.png", 
         "video_src" : "./counter.mp4",
-        "title" : "World's second smallest BarBar Created Ever",
+        "title" : "A nice one minute counter for children and kids",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
         "publication_date" : "1920-10-01",
@@ -23,7 +23,7 @@
         "id" : 3,
         "img" :"./madrid.png", 
         "video_src" : "./Madrid-in-a-nutshell.mp4",
-        "title" : "Madrid in a nutshell",
+        "title" : "Introducing Madrid in a nutshell",
         "artist" : "Jhon the Tourist",
         "category" : "Travel",
         "publication_date" : "2023-06-02",
@@ -43,7 +43,7 @@
         "id" : 5,
         "img" : "./TED_talk.png", 
         "video_src" : "./TED-talk.mp4",
-        "title" : "One minute ted talk",
+        "title" : "Latest One minute ted talk in LA",
         "artist" : "Ted",
         "category" : "Enteirtenment",
         "publication_date" : "2023-04-11",
@@ -63,11 +63,11 @@
         "id" : 7,
         "img" : "./Olympic_teaser.png", 
         "video_src" : "./Olympic.mp4",
-        "title" : "2020 Olympic Teaser",
+        "title" : "2020 Tokyo Olympic Games Teaser",
         "artist" : "Olympics",
         "category" : "Sports",
         "publication_date" : "2019-10-01",
-        "views" : "100M"
+        "views" : "13M"
     },
     { 
         "id" : 8,
@@ -77,23 +77,23 @@
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
         "publication_date" : "1920-10-01",
-        "views" : "100M"
+        "views" : "7M"
     },
     { 
         "id" : 9,
         "img" : "./Shortest_song.png", 
         "video_src" : "./Shortest_song.mp4",
-        "title" : "World's second smallest BarBar Created Ever",
+        "title" : "Shortest song ever created by humans ",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
         "publication_date" : "1920-10-01",
-        "views" : "100M"
+        "views" : "29M"
     },
     { 
         "id" : 10,
         "img" : "./LifeIsLikeThis.png", 
         "video_src" : "./LifeIsLikeThis.mp4",
-        "title" : "World's second smallest BarBar Created Ever",
+        "title" : "'Life Is Like This' - suits memorable scene",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
         "publication_date" : "1920-10-01",

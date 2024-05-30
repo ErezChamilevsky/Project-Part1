@@ -1,5 +1,6 @@
 import "./Video.css"
 import { Link } from "react-router-dom";
+
 function Video({id,img, title, artist, publication_date ,views, category, video_src}){
 return(
     <div class="card" styles="width: 18rem">
@@ -8,8 +9,17 @@ return(
   <div class="card-body">
   <p class="card-text"> {title}</p>
     <div class="card-footer" styles="background-color:trasparent">
+      <div class="row">
+        <div class ="col-10">
     <div class="artist"> {artist}</div>
-      <text class="text-body-secondary">views | {publication_date}</text>
+      <text class="text-body-secondary">{views} | {publication_date}</text>
+      </div>
+      <div class ="col-2">
+       
+        <img src="pencil-fill.svg"/>
+  
+      </div>
+      </div>
   </div>
 </div>
   </Link>
