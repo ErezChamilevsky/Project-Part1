@@ -52,3 +52,9 @@
 background-color: lightgray;
 cursor: pointer;
 }
+.list-group{
+  width: 200px;
+}
+.dropdown-menu{
+width:100px;
+}

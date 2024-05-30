@@ -91,8 +91,8 @@
     },
     { 
         "id" : 10,
-        "img" : "./Spread_Happines.png", 
-        "video_src" : "./Spread_Happines.mp4",
+        "img" : "./LifeIsLikeThis.png", 
+        "video_src" : "./LifeIsLikeThis.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
