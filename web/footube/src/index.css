@@ -11,14 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.video_list > div{
-  height : 50px;;
-  width : 40px;
-  float : left;
-}
+
 .list-group-item{
   border : 0;
   width: 150px;
   height : 80px;
 }
-

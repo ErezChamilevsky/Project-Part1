@@ -45,6 +45,6 @@
     align-items: center;
     justify-content: center;
   }
-  .video_list{
-  margin-left: 130px;
+  .row *{
+    padding-left: 0;
   }
