@@ -7,10 +7,12 @@ import { useState } from 'react';
 function Vid_list(){
 const [videosList, setVideoList] = useState(videos);
 return(
-    <div class="row row-cols-1 row-cols-md-4 g-6">{
+    <div class="row row-cols-1 row-cols-md-4 g-6 ">{
         videosList.map((video)=>
             <div class="col">
+                   <div class="card h-100">
                 <Video {...video}/>
+                </div>
                 </div>
 )
 }

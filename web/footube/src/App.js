@@ -9,11 +9,11 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 function App() {
   return (
     <Router>
-      <div class="container-fluid">
        <SideBar />
-      <div className="screen_layout">
-      <Vid_list class = "video-list" />
-      <ul class="list-group" >
+       <div class="container-fluid">
+        <div class = "row">
+          <div class="col-2">
+          <ul class="list-group" >
   <li class="list-group-item d-flex justify-content-between align-items-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
@@ -43,7 +43,11 @@ function App() {
   </li>
 </ul>
 
-
+          </div>
+          <div class="col-10">
+      <Vid_list class = "video-list" />
+      </div>
+     
 </div>
 </div>
 </Router>

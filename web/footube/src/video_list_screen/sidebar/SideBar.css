@@ -4,3 +4,6 @@ flex-direction: row;
 margin-left: 160px;
 width : 500px;
 }
+.navbar-brand{
+    margin-left : 60px;
+}
