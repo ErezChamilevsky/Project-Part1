@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; 
+  /* TODO add flex that the page still in the smae scaling */
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(215, 56%, 74%);
+}
+
+.up-toolbar {
+  width: 100%;
+  height: 4vh;
+  background-color: hwb(215 85% 2%);
+  margin-top: 1px;
+}
+
+.video-container {
+  width: 100vw;
+  height: 93vh;
+  /* Use vh for height */
+  display: flex;
+  padding: 2px;
+}
+
+.left-block {
+  flex: 0 0 60%;
+  /* Flex-grow, flex-shrink, and flex-basis */
+  margin-left: 6%;
+  background-color: rgb(248, 248, 187);
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-block {
+  flex: 0 0 26%;
+  /* Flex-grow, flex-shrink, and flex-basis */
+  margin-left: 1.5%;
+  margin-right: 6%;
+  background-color: rgb(203, 203, 169);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: gray;
+}
+
+.descriptions{
+  display: block;
+  width: 100%;
+  height: 25%;
+  padding: 5px;
+}
+
+.title{
+  width: 100%;
+  height: fit-content;
+  padding : 4px;
+  padding-left: 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.like-toolbar{
+    width: 100%;
+    height: fit-content;
+    font-size: 20px;
+}
+
