@@ -45,6 +45,6 @@
     align-items: center;
     justify-content: center;
   }
-  .row *{
-    padding-left: 0;
-  }
+.list-group-item{
+  width : 50px;
+}
