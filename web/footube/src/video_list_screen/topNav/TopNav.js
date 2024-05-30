@@ -11,16 +11,15 @@ function TopNav(){
             data-bs-target="#offcanvasWithBackdrop" 
             aria-controls="offcanvasWithBackdrop"> 
         </button> 
-
     </div> 
 </div> 
 <div class="offcanvas offcanvas-start" tabindex="-1" 
     id="offcanvasWithBackdrop" 
     aria-labelledby="offcanvasWithBackdropLabel"> 
     <div class="offcanvas-header"> 
-        <h5 class="offcanvas-title" id="offcanvasScrollingLabel"> 
+        <h5 class="offcanvas-title" id="navbarToggleExternalContent"> 
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+         <div>Home</div>
           <ul class="dropdown-menu">
             <li><a href="#">Page 1-1</a></li>
             <li><a href="#">Page 1-2</a></li>
@@ -34,7 +33,7 @@ function TopNav(){
     </div> 
 </div> 
 <div class="container"> 
-    <nav class="navbar navbar-light bg-light nav"> 
+    <nav class="navbar navbar-light"> 
         <div class="container-fluid"> 
             <button class="navbar-toggler" type="button" 
                 data-bs-toggle="collapse" 
@@ -48,4 +47,5 @@ function TopNav(){
 </div>     
 </div>
   );
-}export default TopNav;
+}
+export default TopNav;

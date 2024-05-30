@@ -9,5 +9,9 @@ width : 500px;
 }
 .d-flex{
 margin-right:500px;
-width: 600px;
+width:150px;
+}
+#sidenav{
+width: 150px;
+height: 60px;
 }
