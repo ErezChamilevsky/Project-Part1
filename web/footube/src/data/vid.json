@@ -1,8 +1,8 @@
 [
     { 
         "id" : 1,
-        "img" : "./Ronaldo_interview.png",
-        "video_src": "./Ronaldo_interview.mp4", 
+        "img" : "./Spread_Happines.png", 
+        "video_src" : "./Spread_Happines.mp4",
         "title" : "World's smallest FooFOO Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Mystory",
@@ -25,7 +25,7 @@
         "video_src" : "./Madrid-in-a-nutshell.mp4",
         "title" : "Madrid in a nutshell",
         "artist" : "Jhon the Tourist",
-        "category" : "Country",
+        "category" : "Travel",
         "publication_date" : "2023-06-02",
         "views" : "25K"
     },
@@ -36,43 +36,43 @@
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
-        "publication_date" : "1920-10-01",
-        "views" : "100M"
+        "publication_date" : "2002-06-29",
+        "views" : "23K"
     },
     { 
         "id" : 5,
         "img" : "./TED_talk.png", 
         "video_src" : "./TED-talk.mp4",
-        "title" : "World's second smallest BarBar Created Ever",
-        "artist" : "Barrrr Cazeron",
-        "category" : "Nature",
-        "publication_date" : "1920-10-01",
-        "views" : "100M"
+        "title" : "One minute ted talk",
+        "artist" : "Ted",
+        "category" : "Enteirtenment",
+        "publication_date" : "2023-04-11",
+        "views" : "134M"
     },
     { 
         "id" : 6,
         "img" : "./Ronaldo_interview.png", 
         "video_src" : "./Ronaldo_interview.mp4",
-        "title" : "World's second smallest BarBar Created Ever",
+        "title" : "Ronaldo talks about Halland in an interview",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
         "publication_date" : "1920-10-01",
-        "views" : "100M"
+        "views" : "43M"
     },
     { 
         "id" : 7,
-        "img" : "./sports.jpg", 
-        "video_src" : "./Ronaldo_interview.mp4",
-        "title" : "World's second smallest BarBar Created Ever",
-        "artist" : "Barrrr Cazeron",
-        "category" : "Nature",
-        "publication_date" : "1920-10-01",
+        "img" : "./Olympic_teaser.png", 
+        "video_src" : "./Olympic.mp4",
+        "title" : "2020 Olympic Teaser",
+        "artist" : "Olympics",
+        "category" : "Sports",
+        "publication_date" : "2019-10-01",
         "views" : "100M"
     },
     { 
         "id" : 8,
-        "img" : "./Ronaldo_interview.png", 
-        "video_src" : "./Ronaldo_interview.mp4",
+        "img" : "./Shortest_movie.png", 
+        "video_src" : "./Shortest_movie.mp4",
         "title" : "Interview vith Cristioano Ronaldo",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -81,8 +81,8 @@
     },
     { 
         "id" : 9,
-        "img" : "./cookies.jpg", 
-        "video_src" : "./Ronaldo_interview.mp4",
+        "img" : "./Shortest_song.png", 
+        "video_src" : "./Shortest_song.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
@@ -91,8 +91,8 @@
     },
     { 
         "id" : 10,
-        "img" : "./cookies.jpg", 
-        "video_src" : "./Ronaldo_interview.mp4",
+        "img" : "./Spread_Happines.png", 
+        "video_src" : "./Spread_Happines.mp4",
         "title" : "World's second smallest BarBar Created Ever",
         "artist" : "Barrrr Cazeron",
         "category" : "Nature",
