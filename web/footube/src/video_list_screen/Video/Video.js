@@ -17,7 +17,7 @@ return(
     <div class="card" styles="width: 18rem">
         <Link to = "html.?id{id}">
   <img src={img} className="card-img-top" alt="Responsive image"/>
-  </Link>
+  
   <div class="card-body">
   <p class="card-text"> {title}</p>
  
@@ -33,6 +33,7 @@ return(
   </div>
          
 </div>
+</Link>
 <div class ="col-2">
        <button onClick={toggleForm}>
        <img src="pencil-fill.svg"/>
