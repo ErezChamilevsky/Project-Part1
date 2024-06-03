@@ -1,22 +1,24 @@
-<div class="block">
-    <div class="left-content">
-        <div class="card">
-            <img class="card-image" src="{userAvatar}" alt="User Avatar" />
-            <div class="card-details">
-                <h1 class="card-name">Username</h1>
-                <p class="card-followers">Followers</p>
+import React from 'react';
+import './comments.css'; // Make sure to import your CSS file
+import Chad from "./chadLogo.jpg"
+
+function Comments(){
+return (
+    <div className='comment-block'>
+        <img className="user-image" src={Chad} />
+
+        
+        <div className='right-content'>
+            <div className='user-name'>
+                <h1>Name</h1>
             </div>
-            <button class="card-sub-button">Subscribe</button>
+            <div className='comment-text'>
+                <p>this is the comment</p>
+            </div>
         </div>
     </div>
-    <div class="right-content">
-        <div class="comment">
-            <h1 class="h1">Comment Heading</h1>
-            <p class="p">Comment Text</p>
-        </div>
-        <div class="other-buttons">
-            <button class="btn like">Like</button>
-            <button class="btn dislike">Dislike</button>
-        </div>
-    </div>
-</div>
+);
+
+
+}
+export default Comments;

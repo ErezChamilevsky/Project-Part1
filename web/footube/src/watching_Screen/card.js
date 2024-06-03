@@ -5,8 +5,9 @@ import "./like-toolbar.css";
 function Card() {
     return (
         <div className="card">
+
             <div className="left-content">
-                <img className="card-image" src={srutonimLogo} alt="Srutonim Logo" />
+                <img className="card-image" src={srutonimLogo} />
 
                 <div className="card-details">
 
@@ -17,8 +18,8 @@ function Card() {
             </div>
             <div className="right-content">
                 <div className="other-buttons">
-                    <button type="button" className="btn btn-secondary like">Like</button>
-                    <button type="button" className="btn btn-secondary dislike">Dislike</button>
+                    <button type="button" className="btn btn-secondary">Like</button>
+                    <button type="button" className="btn btn-secondary">Dislike</button>
                 </div>
             </div>
         </div>

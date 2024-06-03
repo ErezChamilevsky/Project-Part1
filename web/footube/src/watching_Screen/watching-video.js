@@ -2,6 +2,7 @@ import './watching-video.css'
 import React from 'react';
 import Details from './details';
 import Card from './card';
+import Comments from './comments';
 
 function Watch() {
   return (
@@ -22,8 +23,15 @@ function Watch() {
             <div className='title'>
               <h>This is the name of the videos</h>
             </div>
-              <Card></Card>
+            <Card></Card>
             <Details></Details>
+            
+            <div className='comment-section'>
+              <Comments></Comments>
+              <Comments></Comments>
+              <Comments></Comments>
+            </div>
+
           </div>
         </div>
         <div class='right-block'>
