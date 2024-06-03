@@ -1,5 +1,7 @@
 import './watching-video.css'
 import React from 'react';
+import Details from './details';
+import Card from './card';
 
 function Watch() {
   return (
@@ -21,8 +23,9 @@ function Watch() {
               <h>This is the name of the videos</h>
             </div>
             <div className='like-toolbar'>
-              <p>this is the toolbar with the likes </p>
+              <Card></Card>
             </div>
+            <Details></Details>
           </div>
         </div>
         <div class='right-block'>

@@ -13,7 +13,7 @@ function Details() {
             <div className="accordion">
                 <div className="accordion-item">
                     <button className={`accordion-header ${isActive ? 'active' : ''}`} onClick={toggleAccordion}>
-                        Details
+                        num of views, date uploaded
                     </button>
                     <div className="accordion-content" style={{ maxHeight: isActive ? '200px' : '0' }}>
                         <p>This is the content of the details section. Here you can place the video description, tags, and any other relevant information.</p>
