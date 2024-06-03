@@ -22,9 +22,7 @@ function Watch() {
             <div className='title'>
               <h>This is the name of the videos</h>
             </div>
-            <div className='like-toolbar'>
               <Card></Card>
-            </div>
             <Details></Details>
           </div>
         </div>
