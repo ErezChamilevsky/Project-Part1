@@ -2,10 +2,9 @@
 import './App.css';
 import Edit from './video_list_screen/Video/Edit/Edit';
 import Vid_list from './video_list_screen/vid_list/Vid_list';
-import SideBar from  "./video_list_screen/sidebar/SideBar";
+import SideBar from  "./video_list_screen/sidebar/sideBar";
 import TopNav from './video_list_screen/topNav/TopNav';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
 
 function App() {
