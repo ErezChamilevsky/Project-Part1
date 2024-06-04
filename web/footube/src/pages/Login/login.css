@@ -1,0 +1,16 @@
+.login-card {
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-title {
+    margin-bottom: 20px;
+  }
+
+  .login-button{
+    margin-left: 90px; 
+    margin-top: 20px;
+    
+  }
+  
