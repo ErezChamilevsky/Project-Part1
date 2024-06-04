@@ -1,0 +1,102 @@
+[
+    { 
+        "id" : 1,
+        "img" : "./Spread_Happines.png", 
+        "video_src" : "./Spread_Happines.mp4",
+        "title" : "Spread Happines- simple and meaningful animation",
+        "artist" : "Barrrr Cazeron",
+        "category" : "Mystory",
+        "publication_date" : "2020-10-01",
+        "views" : "1M"
+    },
+    { 
+        "id" : 2,
+        "img" : "./counter.png", 
+        "video_src" : "./counter.mp4",
+        "title" : "A nice one minute counter for children and kids",
+        "artist" : "Barrrr Cazeron",
+        "category" : "Nature",
+        "publication_date" : "1920-10-01",
+        "views" : "100M"
+    },
+    { 
+        "id" : 3,
+        "img" :"./madrid.png", 
+        "video_src" : "./Madrid-in-a-nutshell.mp4",
+        "title" : "Introducing Madrid in a nutshell",
+        "artist" : "Jhon the Tourist",
+        "category" : "Travel",
+        "publication_date" : "2023-06-02",
+        "views" : "25K"
+    },
+    { 
+        "id" : 4,
+        "img" : "./40_years.png", 
+        "video_src" : "./One_year_in_40_seconds.mp4",
+        "title" : "World's second smallest BarBar Created Ever",
+        "artist" : "Barrrr Cazeron",
+        "category" : "Nature",
+        "publication_date" : "2002-06-29",
+        "views" : "23K"
+    },
+    { 
+        "id" : 5,
+        "img" : "./TED_talk.png", 
+        "video_src" : "./TED-talk.mp4",
+        "title" : "Latest One minute ted talk in LA",
+        "artist" : "Ted",
+        "category" : "Enteirtenment",
+        "publication_date" : "2023-04-11",
+        "views" : "134M"
+    },
+    { 
+        "id" : 6,
+        "img" : "./Ronaldo_interview.png", 
+        "video_src" : "./Ronaldo_interview.mp4",
+        "title" : "Ronaldo talks about Halland in an interview",
+        "artist" : "Barrrr Cazeron",
+        "category" : "Nature",
+        "publication_date" : "1920-10-01",
+        "views" : "43M"
+    },
+    { 
+        "id" : 7,
+        "img" : "./Olympic_teaser.png", 
+        "video_src" : "./Olympic.mp4",
+        "title" : "2020 Tokyo Olympic Games Teaser",
+        "artist" : "Olympics",
+        "category" : "Sports",
+        "publication_date" : "2019-10-01",
+        "views" : "13M"
+    },
+    { 
+        "id" : 8,
+        "img" : "./Shortest_movie.png", 
+        "video_src" : "./Shortest_movie.mp4",
+        "title" : "Interview vith Cristioano Ronaldo",
+        "artist" : "Barrrr Cazeron",
+        "category" : "Nature",
+        "publication_date" : "1920-10-01",
+        "views" : "7M"
+    },
+    { 
+        "id" : 9,
+        "img" : "./Shortest_song.png", 
+        "video_src" : "./Shortest_song.mp4",
+        "title" : "Shortest song ever created by humans ",
+        "artist" : "Barrrr Cazeron",
+        "category" : "Nature",
+        "publication_date" : "1920-10-01",
+        "views" : "29M"
+    },
+    { 
+        "id" : 10,
+        "img" : "./LifeIsLikeThis.png", 
+        "video_src" : "./LifeIsLikeThis.mp4",
+        "title" : "'Life Is Like This' - suits memorable scene",
+        "artist" : "Barrrr Cazeron",
+        "category" : "Nature",
+        "publication_date" : "1920-10-01",
+        "views" : "100M"
+    }
+]

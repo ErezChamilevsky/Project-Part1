@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Watch from './watching_Screen/watching-video';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Watch></Watch>

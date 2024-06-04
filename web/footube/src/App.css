@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+.screen_layout > div{
+  flex-direction: row;
+  display:flex;
+  text-decoration-line: left;
+  }
+  .Sidebar{
+    align-items: center;
+    justify-content: center;
+  }
+.list-group-item{
+  width : 170px;
+}
+.list-group-item:hover{
+background-color: lightgray;
+cursor: pointer;
+}
+.list-group{
+  width: 200px;
+}
+.dropdown-menu{
+width:100px;
+}
