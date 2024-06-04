@@ -1,6 +1,7 @@
 import React from 'react';
 import srutonimLogo from "./srutonimLogo.jpg";
 import "./like-toolbar.css";
+import users from '../data/user.json';
 
 function Card() {
     return (

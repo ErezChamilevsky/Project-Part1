@@ -3,6 +3,7 @@ import React from 'react';
 import Details from './details';
 import Card from './card';
 import Comments from './comments';
+import users from '../data/user.json';
 
 function Watch() {
   return (
