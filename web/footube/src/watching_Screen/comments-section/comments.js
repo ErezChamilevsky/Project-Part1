@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import userImage from '../../data/user.json';
 import './comments.css'; // Make sure to import your CSS file
-import Chad from "../chadLogo.jpg"
 
-function Comments(){
-return (
+function Comments() {
+    const [userImage, setUserImage] = useState([]);
+
+    useEffect(() => {
+        setUserImage(userImage);
+    }, []);
+
+
+    return (
+
         <div className='comment-block'>
-            <img className="user-image" src={Chad} />
+            <img className="user-image" src={userImage.img} />
 
 
             <div className='right-content'>
@@ -18,8 +26,8 @@ return (
             </div>
         </div>
 
-    
-);
+
+    );
 
 
 }

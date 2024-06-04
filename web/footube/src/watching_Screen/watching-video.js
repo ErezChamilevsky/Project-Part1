@@ -4,8 +4,9 @@ import Details from './details-section/details';
 import Like_toolbar from './like-toolbar/like-toolbar';
 import Comments from './comments-section/comments';
 import AddComment from './comments-section/add-comment';
-
 import users from '../data/user.json';
+import VideoList from './video-list/video-list';
+
 
 function Watch() {
   return (
@@ -22,7 +23,7 @@ function Watch() {
               src="https://www.youtube.com/embed/tgbNymZ7vqY">
             </iframe>
           </div>
-          <div className='descreptions'>
+          <div className='descriptions'>
             <div className='title'>
               <h>This is the name of the videos</h>
             </div>
@@ -40,8 +41,7 @@ function Watch() {
           </div>
         </div>
         <div class='right-block'>
-          <h>other title</h>
-          <p>some other text</p>
+            <VideoList></VideoList>
         </div>
       </div>
     </div>
