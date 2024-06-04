@@ -10,11 +10,11 @@ import VideoList from './video-list/video-list';
 
 function Watch() {
   return (
-
-    <div class="container">
+    <div className="container">
       <div class="up-toolbar">
-        <p>this is a tool bar
-        </p>
+        <div className="up-toolbar">
+          <p>this is a tool bar
+           </p>
       </div>
       <div className='video-container'>
         <div class='left-block'>
@@ -27,9 +27,13 @@ function Watch() {
             <div className='title'>
               <h>This is the name of the videos</h>
             </div>
-            <Like_toolbar></Like_toolbar>
+            <Like_toolbar
+              userName={users[0].user_name}
+              userImg={users[0].user_img}
+              userFolNum={users[0].followers_number}
+            />
             <Details></Details>
-            
+
             <div className='comment-section'>
               <AddComment></AddComment>
 
@@ -41,9 +45,10 @@ function Watch() {
           </div>
         </div>
         <div class='right-block'>
-            <VideoList></VideoList>
+          <VideoList></VideoList>
         </div>
       </div>
+    </div>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 .video-list {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .video-item {
@@ -21,7 +22,6 @@
 }
 
 .video-details {
-    width: 120px;
     display: flex;
     flex-direction: column;
 }
