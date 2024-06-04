@@ -1,9 +1,9 @@
 import React from 'react';
-import srutonimLogo from "./srutonimLogo.jpg";
+import srutonimLogo from "../srutonimLogo.jpg";
 import "./like-toolbar.css";
-import users from '../data/user.json';
+import users from '../../data/user.json';
 
-function Card() {
+function Like_toolbar() {
     return (
         <div className="card">
 
@@ -31,4 +31,4 @@ function Card() {
     );
 }
 
-export default Card;
+export default Like_toolbar;

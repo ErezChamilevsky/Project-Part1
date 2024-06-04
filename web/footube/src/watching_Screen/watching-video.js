@@ -1,8 +1,10 @@
 import './watching-video.css'
 import React from 'react';
-import Details from './details';
-import Card from './card';
-import Comments from './comments';
+import Details from './details-section/details';
+import Like_toolbar from './like-toolbar/like-toolbar';
+import Comments from './comments-section/comments';
+import AddComment from './comments-section/add-comment';
+
 import users from '../data/user.json';
 
 function Watch() {
@@ -24,10 +26,12 @@ function Watch() {
             <div className='title'>
               <h>This is the name of the videos</h>
             </div>
-            <Card></Card>
+            <Like_toolbar></Like_toolbar>
             <Details></Details>
             
             <div className='comment-section'>
+              <AddComment></AddComment>
+
               <Comments></Comments>
               <Comments></Comments>
               <Comments></Comments>
