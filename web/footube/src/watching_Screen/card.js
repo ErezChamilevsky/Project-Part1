@@ -20,6 +20,10 @@ function Card() {
                 <div className="other-buttons">
                     <button type="button" className="btn btn-secondary">Like</button>
                     <button type="button" className="btn btn-secondary">Dislike</button>
+
+                    <button type="button" className="btn btn-secondary">Share</button>
+                    <button type="button" className="btn btn-secondary">Save</button>
+                    <button type="button" className="btn btn-secondary">...</button>
                 </div>
             </div>
         </div>
