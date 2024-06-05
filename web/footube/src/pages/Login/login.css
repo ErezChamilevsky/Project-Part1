@@ -1,5 +1,5 @@
 .login-card {
-    width: 300px;
+    width: 380px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -9,8 +9,20 @@
   }
 
   .login-button{
-    margin-left: 90px; 
+    margin-left: 140px; 
     margin-top: 20px;
     
   }
+
+  .not-registered{
+   margin-top: 10px;
+   margin-left: 120px; 
+   font-size: 15px;
+  }
+
+  .cr-acc{
+   margin-left: 100px;
+  }
+
+
   

@@ -39,9 +39,15 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary btn-block login-button">
+          <button type="submit" className="btn btn-primary btn-block login-button ">
             Login
           </button>
+          <p className="not-registered ">Not registered?</p>    
+              
+                  <a href="#" className="cr-acc btn btn-info" >Create an account </a>
+                        
+                
+            
         </form>
       </div>
     </div>
