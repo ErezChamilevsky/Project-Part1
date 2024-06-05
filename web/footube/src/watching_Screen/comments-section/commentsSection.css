@@ -38,26 +38,26 @@
     border-right: 0px;
 }
 
-
-
 .right-content {
     flex-grow: 0;
-    padding-left:5px;
+    padding-left: 5px;
 }
 
-.comment-block{
-    margin: 3px;
-    display: inline-flex;
+.comment-block {
+    margin: 10px 0;
+    /* Adjust margin for spacing between comments */
+    display: flex;
+    align-items: flex-start;
+    /* Align items to the top */
 }
 
-.comment-text{
-    
-    width: fit-content;
-    text-align: left;
-    color:black;
+.comment-text {
+    margin-left: 10px;
+    /* Add margin between user image/name and comment text */
+    color: black;
 }
 
-.container{
+.container {
     width: 100%;
     flex-direction: column;
 }

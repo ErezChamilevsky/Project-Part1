@@ -2,10 +2,10 @@ import './watching-video.css'
 import React from 'react';
 import Details from './details-section/details';
 import Like_toolbar from './like-toolbar/like-toolbar';
-import Comments from './comments-section/comments';
 import AddComment from './comments-section/add-comment';
 import users from '../data/user.json';
 import VideoList from './video-list/video-list';
+import CommentSection from './comments-section/commentsSection';
 
 
 function Watch() {
@@ -18,7 +18,7 @@ function Watch() {
       </div>
       <div className='video-container'>
         <div class='left-block'>
-          <div class='display'>
+          <div class='vid-display'>
             <iframe width="875" height="450"
               src="https://www.youtube.com/embed/tgbNymZ7vqY">
             </iframe>
@@ -37,14 +37,12 @@ function Watch() {
             <div className='comment-section'>
               <AddComment></AddComment>
 
-              <Comments></Comments>
-              <Comments></Comments>
-              <Comments></Comments>
+              <CommentSection></CommentSection>
             </div>
 
           </div>
         </div>
-        <div class='right-block'>
+        <div class='right-block-vid-list'>
           <VideoList></VideoList>
         </div>
       </div>
