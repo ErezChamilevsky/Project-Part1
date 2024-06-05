@@ -1,5 +1,4 @@
 import React from 'react';
-import userImage from '../../data/user.json';
 import './comment.css'; // Make sure to import your CSS file
 
 function Comment({ userName, userImg, comment }) {
@@ -8,7 +7,6 @@ function Comment({ userName, userImg, comment }) {
 
         <div className='comment-block'>
             <img className="user-image" src={userImg} />
-
 
             <div className='right-content'>
                 <div className='user-name'>

@@ -1,20 +1,6 @@
-{
-    "video_Id": 1,
-    "comments": [
-        {
-            "id": 1,
-            "user_id" : 1,
-            "text": "hey"
-        },
-        {
-            "id": 2,
-            "user_id": 2,
-            "text": "wow"
-        },
-        {
-            "id": 3,
-            "user_id": 1,
-            "text": "aaa"
-        }
-    ]
-}
+[{
+    "video_id" :1,
+    "userImg": "",
+    "userName":"GIGA",
+    "comment":"this is a comment"
+}]

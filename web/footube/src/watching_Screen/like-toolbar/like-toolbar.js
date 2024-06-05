@@ -1,7 +1,7 @@
 import React from 'react';
 import "./like-toolbar.css";
 
-function Like_toolbar({ userName, userImg, userFolNum }) {
+function Like_toolbar({ userName, userImg, userFolNum, likes }) {
     return (
         <div className="bar">
             
@@ -17,6 +17,7 @@ function Like_toolbar({ userName, userImg, userFolNum }) {
             <div className="right-content-tool">
                 <div className="other-buttons">
                     <div className='like-dislike'>
+                        <h6>{likes} likes</h6>
                         <button type="button" className="btn btn-light">Like</button>
                         <button type="button" className="btn btn-light">Dislike</button>
 

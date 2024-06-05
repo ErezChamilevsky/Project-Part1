@@ -14,8 +14,6 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
 }
 
 .up-toolbar {
@@ -41,6 +39,12 @@ body {
   justify-content: flex-start;
 }
 
+video{
+    width: 100%;
+    height : auto;
+    border-radius: 10px;
+    border:0px;
+}
 .right-block-vid-list {
   flex: 0 0 26%;
   padding-top: 10px;
@@ -58,6 +62,7 @@ body {
   height: auto;
   padding: 10px;
   border-radius: 10px;
+  
 }
 
 .descriptions {
