@@ -8,7 +8,7 @@ import videoData from './data/vid.json';
 
 
 
-const selectedVideo = videoData[1]; // Change the index to select different videos
+const selectedVideo = videoData[0]; // Change the index to select different videos
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -6,12 +6,12 @@ import AddComment from './comments-section/add-comment';
 import users from '../data/user.json';
 import VideoList from './video-list/video-list';
 import CommentSection from './comments-section/commentsSection';
-import videoData from '../data/vid.json'; 
+import videoData from '../data/vid.json';
 import commentsData from '../data/comments.json';
 
 
 
-function Watch({ vid_id}) {
+function Watch({ vid_id }) {
 
   // Find the index of the video with the provided vid_id
   const vidIndex = videoData.findIndex(video => video.id === vid_id);
@@ -24,7 +24,7 @@ function Watch({ vid_id}) {
   // Retrieve the video object based on the found index
   const currentVideoFromVideoList = videoData[vidIndex];
 
-    // Find the index of the user with the same user_id as the current video
+  // Find the index of the user with the same user_id as the current video
   const userIndex = users.findIndex(user => user.user_id === currentVideoFromVideoList.user_id);
   if (userIndex === -1) {
     return null; // You can return a message or handle this case accordingly
@@ -33,16 +33,20 @@ function Watch({ vid_id}) {
   // Retrieve the user object based on the found index
   const currentUser = users[userIndex];
 
-  // const commentIndex = commentsData.findIndex(comment => comment.video_id === currentVideoFromVideoList.id);
-
-  // // If the comment is not found, handle the case accordingly
-  // if (commentIndex === -1) {
-  //   return null; // Or handle the case as needed
-  // }
-
-  // // Retrieve the comment object based on the found index
-  // const currentComment = commentsData[commentIndex];
   
+  const currentComments = commentsData.filter(comment => comment.video_id === currentVideoFromVideoList.id);
+
+  // If no comments are found, handle the case accordingly
+  if (currentComments.length === 0) {
+    // Handle the case where no comments are found, e.g., show a message or an empty state
+    console.log("No comments found for this video");
+  } else {
+    // Process the comments as needed, for example, you could map through them and display each comment
+    currentComments.forEach(comment => {
+      console.log(comment);
+      // You can render the comment data here, e.g., comment.userName, comment.comment
+    })
+  }
 
   return (
     <div className="container">
@@ -66,12 +70,13 @@ function Watch({ vid_id}) {
                 userName={currentUser.user_name}
                 userImg={currentUser.user_img}
                 userFolNum={currentUser.followers_number}
-                likes={currentVideoFromVideoList.likes}
+                vidLikes={currentVideoFromVideoList.likes}
               />
-              <Details></Details>
+              <Details details={currentVideoFromVideoList.details} viewsNum={currentVideoFromVideoList.views}
+                uploadDate={currentVideoFromVideoList.publication_date}></Details>
               <div className='comment-section'>
                 {/* <AddComment></AddComment> */}
-                <CommentSection></CommentSection>
+                <CommentSection comments={currentComments} />
               </div>
             </div>
           </div>

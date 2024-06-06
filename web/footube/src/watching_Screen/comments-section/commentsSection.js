@@ -1,42 +1,53 @@
 import React, { useState } from 'react';
 import Comment from './comment';
-import commentsData from '../../data/comments.json';
 import './commentsSection.css';
 
-function CommentSection() {
-    // Initialize state directly with comments data
-    const [commentList, setCommentList] = useState(commentsData);
-    const [newCommentText, setNewCommentText] = useState(""); // State to manage comment text input
-    const [newCommentUser, setNewCommentUser] = useState(""); // State to manage user name input
-    const [newCommentImage, setNewCommentImage] = useState(""); // State to manage user image input
+function CommentSection({ comments }) {
+    const [commentList, setCommentList] = useState(comments);
+    const [newCommentText, setNewCommentText] = useState("");
+    const [newCommentUser, setNewCommentUser] = useState("");
+    const [newCommentImage, setNewCommentImage] = useState("");
+    const [editIndex, setEditIndex] = useState(null); // State to store the index of the comment being edited
+    const [editCommentText, setEditCommentText] = useState(""); // State to manage text in the "edit" textarea
 
-    // Function to handle adding a new comment
     const handleAddComment = () => {
         const newComment = {
+            video_id: null,
             userName: newCommentUser,
             userImg: newCommentImage,
             comment: newCommentText
         };
 
-        setCommentList(prevComments => [...prevComments, newComment]); // Add new comment to the list
-        setNewCommentText(""); // Reset comment text input
-        setNewCommentUser(""); // Reset user name input
-        setNewCommentImage(""); // Reset user image input
+        setCommentList(prevComments => [...prevComments, newComment]);
+        setNewCommentText("");
+        setNewCommentUser("");
+        setNewCommentImage("");
+    };
+
+    const handleRemoveComment = (index) => {
+        if (index >= comments.length) {
+            setCommentList(prevComments => prevComments.filter((_, i) => i !== index));
+        }
+    };
+
+    const handleEditComment = (index) => {
+        const updatedComments = [...commentList];
+        updatedComments[index].comment = editCommentText; // Update with the text from the "edit" textarea
+        setCommentList(updatedComments);
+        setEditIndex(null); // Reset editIndex after saving the edit
+        setEditCommentText(""); // Reset editCommentText after saving the edit
     };
 
     return (
         <div>
-            {/* Input fields for adding new comment */}
             <div className='name-box'>
                 <input
                     type="text"
                     value={newCommentUser}
                     onChange={(e) => setNewCommentUser(e.target.value)}
                     placeholder="Enter Name"
-                /><br />
+                />
             </div>
-
-            {/* Comment itself */}
             <div className="mb-3">
                 <label htmlFor="exampleFormControlTextarea1" className="form-label"></label>
                 <textarea
@@ -48,22 +59,39 @@ function CommentSection() {
                     placeholder="Comment.."
                 ></textarea>
             </div>
-            <br />
-
-            {/* Image URL input (optional) */}
-            {/* <input
-                type="text"
-                value={newCommentImage}
-                onChange={(e) => setNewCommentImage(e.target.value)}
-                placeholder="Enter Image URL"
-            /><br /> */}
-
-            <button onClick={handleAddComment}>Send</button>
-
-            {/* Render the comments */}
-            {commentList && commentList.map((comment, index) =>
-                <Comment key={index} {...comment} />
-            )}
+            <button type="button" class="btn btn-outline-secondary" onClick={handleAddComment}>Send</button>
+            {commentList && commentList.map((comment, index) => (
+                <div key={index}>
+                    {editIndex === index ? (
+                        <div>
+                            <textarea
+                                className="form-control"
+                                id="exampleFormControlTextarea1"
+                                rows="3"
+                                value={editCommentText}
+                                onChange={(e) => setEditCommentText(e.target.value)}
+                                placeholder={comment.comment} // Placeholder set to the original comment text
+                            ></textarea>
+                            <button onClick={() => handleEditComment(index)}>Save</button>
+                            <button onClick={() => setEditIndex(null)}>Cancel</button>
+                        </div>
+                    ) : (
+                        <div>
+                            <Comment {...comment} />
+                            <div>
+                                {index >= comments.length ? (
+                                    <>
+                                        {/* Edit button */}
+                                            <button type="button" class="btn btn-outline-secondary" onClick={() => setEditIndex(index)}>Edit</button>
+                                        {/* Remove button */}
+                                            <button type="button" class="btn btn-outline-secondary" onClick={() => handleRemoveComment(index)}>Remove</button>
+                                    </>
+                                ) : null}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            ))}
         </div>
     );
 }
