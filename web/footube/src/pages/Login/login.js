@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link ,useNavigate} from 'react-router-dom';
+import { BrowserRouter, Router, Routes, Link } from 'react-router-dom';
 
 import './login.css'; 
 
@@ -7,28 +7,24 @@ function Login({ users }) {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [userFound, setUserFound] = useState(null);
 
+
+  //fuction that handle with user that want to enter to site , and check if he exist
   const handleLogin = (event) => {
       event.preventDefault(); // Prevent form submission and prvent delete the users state
       // Check if the entered username and password match any user in the users array
       const userExists = users.find(user => user.userName === username && user.password === password);
 
+      const userFound = false; // Assume the user doesn't exist for demonstration
+
       if (userExists) {
-          // User exists, perform necessary actions
-          console.log("User exists!");
+        const userFound = true; // Assume the user doesn't exist for demonstration
+        setUserFound(userFound);
       } else {
-          // User doesn't exist, handle accordingly
-          console.log("User does not exist!");
+        setUserFound(userFound);
       }
   };
-
-
-    // Handle login logic here
-    // Check if users array is updated
-    console.log('Current Users in Login:', users);
-
-    console.log('Username:', username);
-    console.log('Password:', password);
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
@@ -60,6 +56,12 @@ function Login({ users }) {
           <button onClick={handleLogin} type="submit" className="btn btn-primary btn-block login-button ">
             Login
           </button>
+            {/* this visualition if userName or password are wrong*/}
+            {userFound === null ? null : userFound ? (
+              <div></div>)
+             : (
+              <div style={{ color: 'red' }}>UserName or password wrong</div>
+            )}
           <p className="not-registered ">Not registered?</p>    
               <button href="#" className="cr-acc btn btn-info" >Create an account </button>     
         </form>

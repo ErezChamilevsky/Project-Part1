@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Register.css'; 
 
 function Register({ users, setUsers }) {
-    //const [users, setUsers] = useState([]); // define users array
     const [formData, setFormData] = useState({   // hold the current user that register
         userName: '',
         displayName: '',
@@ -11,14 +10,18 @@ function Register({ users, setUsers }) {
         imageFile: null,
         imagePreview: null
     });
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({}); //errors state
+    const [successMessage, setSuccessMessage] = useState('');
 
+
+    //function that update the fromData state. fromData holsds the deatils of current user who register now.
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleFileChange = (event) => { // update the image
+    // function that update the user's image
+    const handleFileChange = (event) => { 
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -29,11 +32,13 @@ function Register({ users, setUsers }) {
         }
     };
 
+    //function who validate password
     const validatePassword = (password) => {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
         return passwordRegex.test(password);
     };
 
+    // function add users to state
     const handleSubmit = (event) => {
         event.preventDefault();  //prevent refreshing the page
 
@@ -49,6 +54,7 @@ function Register({ users, setUsers }) {
 
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
+            setSuccessMessage(''); // clear success message if there are errors
             return;
         }
 
@@ -72,9 +78,7 @@ function Register({ users, setUsers }) {
         });
 
         setErrors({});
-
-        console.log("Submitted User:", newUser);
-        console.log("Current Users:", users);
+        setSuccessMessage('Registration completed successfully'); // set success message
     };
 
     return (
@@ -166,6 +170,16 @@ function Register({ users, setUsers }) {
                         </div>
                     </div>
                 </form>
+                {/*visulation if registerion complete successfuly*/}
+                {successMessage && (
+                <div className="form-group row">
+                    <div className="col-sm-10">
+                        <small className="text-success" style={{ color: 'green', fontWeight: 'bold' }}>
+                            {successMessage}
+                        </small>
+                    </div>
+                </div>
+            )}
             </div>        
         </div>
     );
