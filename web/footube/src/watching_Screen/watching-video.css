@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  width: 100vw;
+  width: 98.5vw;
 }
 
 .container {
@@ -32,7 +32,7 @@ body {
 
 .left-block {
   flex: 0 0 60%;
-  margin-left: 6%;
+  margin-left: 5.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,7 @@ video{
     border:0px;
 }
 .right-block-vid-list {
-  flex: 0 0 26%;
+  flex: 0 0 24%;
   padding-top: 10px;
   margin-left: 1.5%;
   margin-right: 6%;
