@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Watch from './watching_Screen/watching-video';
 import videoData from './data/vid.json'; 
+import { BrowserRouter } from 'react-router-dom';
 
 
 
-const selectedVideo = videoData[0]; // Change the index to select different videos
+// const selectedVideo = videoData[0]; // Change the index to select different videos
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Watch vid_id={selectedVideo.id} />
+  <BrowserRouter>
+  <App/>
+  </BrowserRouter>
 );
 
 reportWebVitals();

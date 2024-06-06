@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './video-list.css';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import videoData from '../../data/vid.json';
 
 const VideoList = () => {
@@ -11,8 +11,10 @@ const VideoList = () => {
     }, []);
 
     return (
+        
         <div className="video-list">
             {videos.map((video) => (
+                <Link key={video.id} to={`/${video.id}`}>
                 <div key={video.id} className="video-item">
                     <div className="video-thumbnail">
                         <img src={video.img} />
@@ -25,7 +27,10 @@ const VideoList = () => {
                         </p>
                     </div>
                 </div>
+                </Link>
+                
             ))}
+            
         </div>
     );
 };

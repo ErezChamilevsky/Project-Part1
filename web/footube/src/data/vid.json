@@ -74,7 +74,8 @@
         "publication_date": "1920-10-01",
         "views": "43M",
         "details": "some details",
-        "likes": 300
+        "likes": 300,
+        "user_id": 2
     },
     {
         "id": 7,

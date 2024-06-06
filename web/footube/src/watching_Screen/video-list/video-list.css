@@ -1,3 +1,7 @@
+Link{
+    text-decoration: none;
+}
+
 .video-list {
     display: flex;
     flex-direction: column;
@@ -7,6 +11,7 @@
 .video-item {
     display: flex;
     margin-bottom: 16px;
+
 }
 
 .video-thumbnail {
