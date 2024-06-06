@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Register.css'; 
 
-function Register () {
-    const [users, setUsers] = useState([]); // define users array
+function Register({ users, setUsers }) {
+    //const [users, setUsers] = useState([]); // define users array
     const [formData, setFormData] = useState({   // hold the current user that register
         userName: '',
         displayName: '',
