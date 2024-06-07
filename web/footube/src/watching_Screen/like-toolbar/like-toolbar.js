@@ -6,20 +6,14 @@ function LikeToolbar({ userName, userImg, userFolNum, vidLikes }) {
     const [liked, setLiked] = useState(false);
     const [disliked, setDisliked] = useState(false);
 
+    // Watch for changes in the vidLikes prop and update likeCount accordingly
     useEffect(() => {
-        // Enable Bootstrap popover
-        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
-        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new window.bootstrap.Popover(popoverTriggerEl));
-
-        // Cleanup function to destroy popovers on component unmount
-        return () => {
-            popoverList.forEach(popover => popover.dispose());
-        };
-    }, []); // Empty dependency array ensures this runs only once after the component mounts
+        setLikeCount(vidLikes);
+    }, [vidLikes]);
 
     const handleLike = () => {
         if (!liked) {
-            setLikeCount(likeCount + 1);
+            setLikeCount(prevCount => prevCount + 1);
             setLiked(true);
             setDisliked(false);
         }
@@ -27,13 +21,11 @@ function LikeToolbar({ userName, userImg, userFolNum, vidLikes }) {
 
     const handleDislike = () => {
         if (!disliked) {
-            setLikeCount(likeCount - 1);
+            setLikeCount(prevCount => prevCount - 1);
             setLiked(false);
             setDisliked(true);
         }
     };
-
-  
 
     return (
         <div className="bar">
@@ -55,7 +47,7 @@ function LikeToolbar({ userName, userImg, userFolNum, vidLikes }) {
                     </div>
                     <button type="button" className="btn btn-lg btn-secondary" data-bs-toggle="popover"
                         data-bs-title="Share the video" data-bs-content="web\footube\src\telegramIcon.png">Share</button>
-                    
+
                 </div>
             </div>
         </div>
