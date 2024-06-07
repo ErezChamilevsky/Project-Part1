@@ -46,5 +46,9 @@
     padding: 5px;
 }
 
-
+.login-page-link{
+    position: absolute; /* Use absolute positioning */
+    top: 60px; 
+    left: 390px; 
+}
 

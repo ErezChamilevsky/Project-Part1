@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Register.css'; 
+import { Link } from 'react-router-dom';
 
 function Register({ users, setUsers }) {
     const [formData, setFormData] = useState({   // hold the current user that register
@@ -83,6 +84,7 @@ function Register({ users, setUsers }) {
 
     return (
         <div className="main-div"> 
+           <Link to='/' className="cr-acc btn btn-info login-page-link">Login Page</Link>    
             <div className="card">
                 <div className="card-body">
                     Sign in Form

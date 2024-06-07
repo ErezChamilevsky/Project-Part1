@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Router, Routes, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './login.css'; 
 
@@ -7,7 +7,7 @@ function Login({ users }) {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [userFound, setUserFound] = useState(null);
+  const [userFound, setUserFound] = useState(null); //this state for visualtion if the user founnd or not.
 
 
   //fuction that handle with user that want to enter to site , and check if he exist
@@ -53,7 +53,7 @@ function Login({ users }) {
               required
             />
           </div>
-          <button onClick={handleLogin} type="submit" className="btn btn-primary btn-block login-button ">
+          <button onClick={handleLogin} type="submit" className="btn btn-danger btn-block login-button ">
             Login
           </button>
             {/* this visualition if userName or password are wrong*/}
@@ -63,7 +63,7 @@ function Login({ users }) {
               <div style={{ color: 'red' }}>UserName or password wrong</div>
             )}
           <p className="not-registered ">Not registered?</p>    
-              <button href="#" className="cr-acc btn btn-info" >Create an account </button>     
+              <Link to='/register' className="cr-acc btn btn-info">Create an account</Link>    
         </form>
       </div>
     </div>
