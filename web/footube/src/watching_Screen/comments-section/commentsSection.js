@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import Comment from './comment';
 import './commentsSection.css';
+import { useParams } from 'react-router-dom';
+
 
 function CommentSection({ comments }) {
+
+    const { vid_id } = useParams();  
+
     const [commentList, setCommentList] = useState(comments);
     const [newCommentText, setNewCommentText] = useState("");
     const [newCommentUser, setNewCommentUser] = useState("");
@@ -12,7 +17,7 @@ function CommentSection({ comments }) {
 
     const handleAddComment = () => {
         const newComment = {
-            video_id: null,
+            video_id: {vid_id},
             userName: newCommentUser,
             userImg: newCommentImage,
             comment: newCommentText
@@ -38,6 +43,7 @@ function CommentSection({ comments }) {
         setEditCommentText(""); // Reset editCommentText after saving the edit
     };
 
+    console.log({comments});
     return (
         <div>
             <div className='name-box'>
@@ -78,6 +84,8 @@ function CommentSection({ comments }) {
                     ) : (
                         <div>
                             <Comment {...comment} />
+                            <br></br>
+                            
                             <div>
                                 {index >= comments.length ? (
                                     <>
@@ -92,6 +100,7 @@ function CommentSection({ comments }) {
                     )}
                 </div>
             ))}
+            
         </div>
     );
 }
