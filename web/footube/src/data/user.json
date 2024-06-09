@@ -1,0 +1,8 @@
+[
+    {
+        "user_id" : 1,
+        "user_img": "./images/user-images/chadLogo.jpg",
+        "user_name" : "Chad",
+        "followers_number" : "1000"
+    }
+]
