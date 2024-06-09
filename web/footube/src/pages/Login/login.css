@@ -1,0 +1,31 @@
+.login-card {
+    border-color: red;
+    border-style: solid;
+    width: 380px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-title {
+    margin-bottom: 20px;
+  }
+
+  .login-button{
+    background-color: red;
+    margin-left: 140px; 
+    margin-top: 20px;
+    
+  }
+
+  .not-registered{
+   margin-top: 10px;
+   margin-left: 120px; 
+   font-size: 15px;
+  }
+
+  .cr-acc{
+   margin-left: 100px;
+  }
+
+
+  
