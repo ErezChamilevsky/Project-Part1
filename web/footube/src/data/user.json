@@ -1,8 +1,14 @@
-[
-    {
-        "user_id" : 1,
-        "user_img": "./images/user-images/chadLogo.jpg",
-        "user_name" : "Chad",
-        "followers_number" : "1000"
-    }
-]
+ [
+        {
+            "user_id": 1,
+            "user_img": "/images/users-images/chadLogo.jpg",
+            "user_name": "Chad",
+            "followers_number": "1000"
+        },
+        {
+            "user_id": 2,
+            "user_img": "/images/users-images/srutonimLogo.jpg",
+            "user_name": "Srutonim",
+            "followers_number": "30"
+        }
+    ]
