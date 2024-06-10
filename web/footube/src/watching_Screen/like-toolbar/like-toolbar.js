@@ -1,32 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "./like-toolbar.css";
 
-function LikeToolbar({ userName, userImg, userFolNum, vidLikes }) {
-    const [likeCount, setLikeCount] = useState(vidLikes);
-    const [liked, setLiked] = useState(false);
-    const [disliked, setDisliked] = useState(false);
-
-    // Watch for changes in the vidLikes prop and update likeCount accordingly
-    useEffect(() => {
-        setLikeCount(vidLikes);
-    }, [vidLikes]);
-
-    const handleLike = () => {
-        if (!liked) {
-            setLikeCount(prevCount => prevCount + 1);
-            setLiked(true);
-            setDisliked(false);
-        }
-    };
-
-    const handleDislike = () => {
-        if (!disliked) {
-            setLikeCount(prevCount => prevCount - 1);
-            setLiked(false);
-            setDisliked(true);
-        }
-    };
-
+function LikeToolbar({ userName, userImg, likeCount, liked, disliked, handleLike, handleDislike }) {
     return (
         <div className="bar">
             <div className="left-content-tool">
@@ -40,12 +15,11 @@ function LikeToolbar({ userName, userImg, userFolNum, vidLikes }) {
                 <div className="other-buttons">
                     <div className='like-dislike'>
                         <h6>{likeCount} likes</h6>
-                        <button type="button" className="btn btn-light" onClick={handleLike} disabled={liked}>Like</button>
-                        <button type="button" className="btn btn-light" onClick={handleDislike} disabled={disliked}>Dislike</button>
+                        <button type="button" className="btn btn-light" onClick={handleLike}>{liked ? 'Unlike' : 'Like'}</button>
+                        <button type="button" className="btn btn-light" onClick={handleDislike}>{disliked ? 'Undislike' : 'Dislike'}</button>
                     </div>
                     <button type="button" className="btn btn-lg btn-secondary" data-bs-toggle="popover"
                         data-bs-title="Share the video" data-bs-content="web\footube\src\telegramIcon.png">Share</button>
-
                 </div>
             </div>
         </div>

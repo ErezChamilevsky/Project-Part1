@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import VideoDisplay from './video_display/videoDisplay';
 import React, { useState, useEffect } from 'react';
 import commentsDataList from '../data/comments.json';
+import LikesHandler from './like-toolbar/likesHandler';
 
 function Watch({ videoDataList, userDataList }) {
   const { vid_id } = useParams();  // Extract vid_id from useParams
@@ -15,11 +16,25 @@ function Watch({ videoDataList, userDataList }) {
   const [commentList, setCommentList] = useState(commentsDataList);
 
   let currentVideoFromVideoList = videoDataList.find(video => video.id == intId);
-  // console.log({currentVideoFromVideoList});
   let currentUser = userDataList[0];
   
-  
 
+  const [likesData, setLikesData] = useState({});
+
+  // Set initial likes data for the current video if not already set
+  useEffect(() => {
+    if (!likesData[intId]) {
+      setLikesData(prev => ({
+        ...prev,
+        [intId]: {
+          likeCount: currentVideoFromVideoList.likes,
+          liked: false,
+          disliked: false
+        }
+      }));
+    }
+  }, [intId, currentVideoFromVideoList.likes, likesData]);
+  
 
   return (
     <div className="container">
@@ -33,14 +48,16 @@ function Watch({ videoDataList, userDataList }) {
           <div className='vid-display'>
             <VideoDisplay vid_src={currentVideoFromVideoList.video_src}/>
           </div>
-          <div className='descriptions'>
+          <div className='descriptions' key={intId}>
             <div className='vidTitle'>
               <h4>{currentVideoFromVideoList.title}</h4>
             </div>
-            <Like_toolbar
+            <LikesHandler
               userName={currentUser.user_name}
               userImg={currentUser.user_img}
               vidLikes={currentVideoFromVideoList.likes}
+              likesData={likesData}
+              setLikesData={setLikesData}
             />
             <Details
               details={currentVideoFromVideoList.details}
