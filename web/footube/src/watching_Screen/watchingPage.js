@@ -1,11 +1,12 @@
-import './watching-video.css'
-import React from 'react';
+import './watchingPage.css'
 import Details from './details-section/details';
 import Like_toolbar from './like-toolbar/like-toolbar';
 import VideoList from './video-list/video-list';
 import CommentSection from './comments-section/commentsSection';
 import { useParams } from 'react-router-dom';
 import VideoDisplay from './video_display/videoDisplay';
+import React, { useState } from 'react';
+
 
 function Watch({ videoDataList, userDataList, commentsDataList }) {
 
@@ -13,12 +14,15 @@ function Watch({ videoDataList, userDataList, commentsDataList }) {
 
   const intId = parseInt(vid_id, 10);
 
+  const [commentList, setCommentList] = useState(commentsDataList);
+  
+  
+
   // Find the video object with the provided vid_id
   const currentVideoFromVideoList = videoDataList.find(video => video.id === intId);
 
-  // If the video is not found, return a message or handle the case accordingly
   if (!currentVideoFromVideoList) {
-    return <div>Video not found</div>;  // You can also return a message or component indicating the video was not found
+    return <div>Video not found</div>;  
   }
 
   // Find the user object with the same user_id as the current video
@@ -26,9 +30,6 @@ function Watch({ videoDataList, userDataList, commentsDataList }) {
   if (!currentUser) {
     return <div>User not found</div>;  // You can return a message or handle this case accordingly
   }
-
-  // Filter the comments for the current video
-  const currentComments = commentsDataList.filter(comment => comment.video_id === currentVideoFromVideoList.id);
 
   return (
     <div className="container">
@@ -60,7 +61,7 @@ function Watch({ videoDataList, userDataList, commentsDataList }) {
               />
               <div className='comment-section'>
                 {/* <AddComment></AddComment> */}
-                <CommentSection comments={currentComments} />
+                <CommentSection commentList={commentList} setCommentList={setCommentList} />
               </div>
             </div>
           </div>
