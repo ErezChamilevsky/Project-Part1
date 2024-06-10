@@ -16,6 +16,7 @@ import React, { useState } from 'react';
 
 function App() {
   const [users, setUsers] = useState([]); // define users array
+  const [videos, setVideos] = useState([]);
 
   return (
     <div>

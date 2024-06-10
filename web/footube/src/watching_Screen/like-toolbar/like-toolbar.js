@@ -33,9 +33,7 @@ function LikeToolbar({ userName, userImg, userFolNum, vidLikes }) {
                 <img className="card-image" src={userImg} alt="User" />
                 <div className="card-details">
                     <h1 className="card-name">{userName}</h1>
-                    <p className="card-followers">{userFolNum} followers</p>
                 </div>
-                <button type="button" className="btn btn-dark">Subscribe</button>
             </div>
 
             <div className="right-content-tool">

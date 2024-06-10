@@ -43,7 +43,7 @@ function Watch({ videoDataList, userDataList, commentsDataList }) {
               <VideoDisplay video_src={currentVideoFromVideoList.video_src}/>
             </div>
             <div className='descriptions'>
-              <div className='title'>
+              <div className='vidTitle'>
                 <h4>{currentVideoFromVideoList.title}</h4>
               </div>
               {/* Pass user data to Like_toolbar */}
@@ -51,7 +51,6 @@ function Watch({ videoDataList, userDataList, commentsDataList }) {
               <Like_toolbar
                 userName={currentUser.user_name}
                 userImg={currentUser.user_img}
-                userFolNum={currentUser.followers_number}
                 vidLikes={currentVideoFromVideoList.likes}
               />
               <Details
