@@ -17,6 +17,7 @@ function App() {
   const [videos, setVideos] = useState(vidData);
 
   return (
+
     <div>
       <Routes>
         <Route path="/" element={ <Login users={users}/> } />
@@ -25,7 +26,6 @@ function App() {
         <Route path='/watch/:vid_id' element={<Watch videoDataList={videos} userDataList={users}/>} />
        </Routes>
     </div>
-
 
   );
 }
