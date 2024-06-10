@@ -54,7 +54,7 @@
     {
         "id": 5,
         "img": "/images/vid-images/TED_talk.png",
-        "video_src": "/videos/TED-talk.mp4",
+        "video_src": "/images/videos/ted.mp4",
         "title": "Latest One minute ted talk in LA",
         "artist": "Ted",
         "category": "Enteirtenment",
@@ -67,7 +67,7 @@
     {
         "id": 6,
         "img": "/images/vid-images/Ronaldo_interview.png",
-        "video_src": "/videos/Ronaldo_interview.mp4",
+        "video_src": "/images/videos/ro.mp4",
         "title": "Ronaldo talks about Halland in an interview",
         "artist": "Barrrr Cazeron",
         "category": "Nature",
@@ -106,7 +106,7 @@
     {
         "id": 9,
         "img": "/images/vid-images/Shortest_song.png",
-        "video_src": "/images/videos/Shortest_song.mp4",
+        "video_src": "/images/videos/Short.mp4",
         "title": "Shortest song ever created by humans ",
         "artist": "Barrrr Cazeron",
         "category": "Nature",
