@@ -1,7 +1,7 @@
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Watch from './watching_Screen/watching-video';
+import Watch from './watching_Screen/watchingPage';
 import vidData from './data/vid.json'; //needed to change to state
 import userDataList from './data/user.json'; //needed to change to state
 import commentsDataList from './data/comments.json';
