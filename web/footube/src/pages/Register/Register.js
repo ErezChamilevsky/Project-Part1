@@ -64,7 +64,7 @@ function Register({ users, setUsers }) {
             userName: formData.userName,
             password: formData.password,
             displayName: formData.displayName,
-            imageFile: formData.imageFile,
+            imageFile: formData.imageFile,z
         };
         setUsers([...users, newUser]);
 
