@@ -14,7 +14,6 @@ function Homepage({loggedUser, currentVideos, setCurrentVideos}) {
         return <VideoItem {...video} />
     })
 
-    // alert(currentVideos.length)
 
     return (
         <html lang="en">
