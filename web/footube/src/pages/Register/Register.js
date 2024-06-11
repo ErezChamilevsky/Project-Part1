@@ -64,10 +64,10 @@ function Register({ users, setUsers }) {
             userName: formData.userName,
             password: formData.password,
             displayName: formData.displayName,
-            imageFile: formData.imageFile,z
+            imageFile: formData.imageFile,
         };
         setUsers([...users, newUser]);
-
+        
         // Clear the form
         setFormData({
             userName: '',
