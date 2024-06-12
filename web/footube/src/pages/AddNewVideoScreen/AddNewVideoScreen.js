@@ -16,6 +16,10 @@ function AddNewVideoScreen(){
                     <div className="col-sm-10">
                         <input type="file" className=" form-control vid-upl" accept="video/*"/>
                     </div>
+
+                    <div>
+                        <button className="cr-acc btn btn-info upload-video-btn">Uplaod Video</button>
+                    </div>
         </div>
     )
 }
