@@ -10,7 +10,6 @@ function App() {
 
   return (
     <div>
-        {/*< AddNewVideoScreen />*/}
       <Routes>
         <Route path="/" element={ <Login users={users}/> } />
         <Route path='/register' element={ <Register users={users} setUsers={setUsers}/> }></Route>

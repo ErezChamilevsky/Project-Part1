@@ -45,6 +45,14 @@
     left: 390px; 
 }
 
+.upload-video-btn{
+    position: absolute;
+    right: 500px;
+    width: 510px;
+    color: white;
+    margin-top: 20px;
+}
+
 /* this is for coloring al page */
 html, body {
     background-color:rgb(248, 245, 245)
