@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './login.css'; 
 
-function Login({ users }) {
+function Login({ users, setLoggedUser,loggedUser }) {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -21,10 +21,15 @@ function Login({ users }) {
       if (userExists) {
         const userFound = true; // Assume the user doesn't exist for demonstration
         setUserFound(userFound);
+        setLoggedUser(userExists); //define the loggedUser state be current user who log in
+        console.log(userExists);
+        console.log(loggedUser);
       } else {
         setUserFound(userFound);
       }
   };
+
+ 
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
