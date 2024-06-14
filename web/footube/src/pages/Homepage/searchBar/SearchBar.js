@@ -1,5 +1,6 @@
 import '../Homepage.css'
 import videos from '../../../data/vid.json'
+import { Link } from 'react-router-dom';
 
 
 function SearchBar({setCurrentVideos}) {
@@ -34,7 +35,11 @@ function SearchBar({setCurrentVideos}) {
                 </form>
             </div>
             <div className="header__icons_Homepage">
-               <Link to='/login' className="cr-acc btn btn-info registerButton">Login</Link>      
+                <div>
+                <Link to='/addNewVideoScreen' className="cr-acc btn btn-info registerButton">Add New Video</Link>    
+                <Link to='/login' className="cr-acc btn btn-info registerButton">Login</Link>    
+
+            </div>
                 <i className="material-icons display-this">account_circle</i>
             </div>
         </div>
