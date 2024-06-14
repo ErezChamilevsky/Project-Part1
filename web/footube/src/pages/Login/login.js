@@ -14,7 +14,7 @@ function Login({ users, setLoggedUser,loggedUser }) {
   const handleLogin = (event) => {
       event.preventDefault(); // Prevent form submission and prvent delete the users state
       // Check if the entered username and password match any user in the users array
-      const userExists = users.find(user => user.userName === username && user.password === password);
+      const userExists = users.find(user => user.userName === username && user.userPassword === password);
 
       const userFound = false; // Assume the user doesn't exist for demonstration
 
