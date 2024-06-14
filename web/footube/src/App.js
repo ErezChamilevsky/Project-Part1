@@ -8,13 +8,24 @@ import Login from './pages/Login/login.js';
 import Register from './pages/Register/Register.js';
 import AddNewVideoScreen from './pages/AddNewVideoScreen/AddNewVideoScreen.js';
 import React, { useState } from 'react';
-
-
+import { useEffect } from 'react';
 
 
 function App() {
-  const [users, setUsers] = useState(userDataList); // define users array
+
+
+  const [users, setUsers] = useState(userDataList);
   const [videos, setVideos] = useState(vidData);
+  const [loggedUser, setLoggedUser] = useState();
+ 
+
+  useEffect(() => {
+    if (userDataList.length > 0) {
+      setLoggedUser(userDataList[1]);
+    }
+  }, []);
+
+
 
   return (
 
@@ -23,7 +34,7 @@ function App() {
         <Route path="/" element={ <Login users={users}/> } />
         <Route path='/register' element={ <Register users={users} setUsers={setUsers}/> }></Route>
         <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen /> }></Route>
-        <Route path='/watch/:vid_id' element={<Watch videoDataList={videos} userDataList={users}/>} />
+        <Route path='/watch/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser}/>} />
        </Routes>
     </div>
 

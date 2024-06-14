@@ -4,7 +4,7 @@ import Comment from './comment';
 import './commentsSection.css';
 import AddComment from './addComment';
 
-function CommentSection({ commentList, setCommentList }) {
+function CommentSection({ commentList, setCommentList, loggedUser }) {
     const { vid_id } = useParams();
     const intId = parseInt(vid_id, 10);
 
@@ -30,10 +30,10 @@ function CommentSection({ commentList, setCommentList }) {
 
     const handleEditComment = (index) => {
         const updatedComments = [...commentList];
-        updatedComments[index].comment = editCommentText; 
+        updatedComments[index].comment = editCommentText;
         setCommentList(updatedComments);
-        setEditIndex(null); 
-        setEditCommentText(""); 
+        setEditIndex(null);
+        setEditCommentText("");
     };
 
     const handleCancelEdit = () => {
@@ -41,64 +41,88 @@ function CommentSection({ commentList, setCommentList }) {
         setEditCommentText("");
     };
 
-    return (
-        <div>
-            <AddComment addComment={handleAddComment} commentId={commentId} />
+
+
+    if (loggedUser != null) {
+
+        return (
+            <div>
+                <AddComment addComment={handleAddComment} commentId={commentId} loggedUser={loggedUser} />
+                <div className='comment-list'>
+                    {filteredCommentList.map((comment, index) => (
+                        <div key={comment.comment_id} className="comment-item">
+                            {editIndex === index ? (
+
+                                <div>
+                                    <textarea
+                                        className="form-control"
+                                        rows="3"
+                                        value={editCommentText}
+                                        onChange={(e) => setEditCommentText(e.target.value)}
+                                        placeholder={comment.comment}
+                                    />
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => handleEditComment(index)}
+                                    >
+                                        Save
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-secondary"
+                                        onClick={handleCancelEdit}
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            ) : (
+                                <div>
+                                    <Comment
+                                        userName={comment.userName}
+                                        userImage={comment.userImg}
+                                        comment={comment.comment}
+                                    />
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => setEditIndex(index) || setEditCommentText(comment.comment)}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => handleRemoveComment(comment.comment_id)}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
+
+    //there is no user logged
+    else {
+
+        return (
             <div className='comment-list'>
-                {filteredCommentList.map((comment, index) => (
+                {filteredCommentList.map((comment) => (
                     <div key={comment.comment_id} className="comment-item">
-                        {editIndex === index ? (
-                            <div>
-                                <textarea
-                                    className="form-control"
-                                    rows="3"
-                                    value={editCommentText}
-                                    onChange={(e) => setEditCommentText(e.target.value)}
-                                    placeholder={comment.comment}
-                                />
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-secondary"
-                                    onClick={() => handleEditComment(index)}
-                                >
-                                    Save
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-secondary"
-                                    onClick={handleCancelEdit}
-                                >
-                                    Cancel
-                                </button>
-                            </div>
-                        ) : (
-                            <div>
-                                <Comment
-                                    userName={comment.userName}
-                                    userImage={comment.userImg}
-                                    comment={comment.comment}
-                                />
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-secondary"
-                                    onClick={() => setEditIndex(index) || setEditCommentText(comment.comment)}
-                                >
-                                    Edit
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-secondary"
-                                    onClick={() => handleRemoveComment(comment.comment_id)}
-                                >
-                                    Remove
-                                </button>
-                            </div>
-                        )}
+                        <Comment
+                            userName={comment.userName}
+                            userImage={comment.userImg}
+                            comment={comment.comment}
+                        />
                     </div>
                 ))}
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default CommentSection;

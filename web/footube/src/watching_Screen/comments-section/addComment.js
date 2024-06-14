@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 
-function AddComment({ addComment , commentId}) {
+function AddComment({ addComment , commentId, loggedUser}) {
 
     const { vid_id } = useParams();
     const intId = parseInt(vid_id, 10);
 
 
     const [newCommentText, setNewCommentText] = useState("");
-    const [newCommentUser, setNewCommentUser] = useState("");
-    const [newCommentImage, setNewCommentImage] = useState("");
+    const newCommentUser = loggedUser.user_name; 
+    const newCommentImage = loggedUser.user_img;
     const [newCommentId, setNewCommentId] = useState("");
 
 
@@ -24,10 +24,9 @@ function AddComment({ addComment , commentId}) {
         };
         addComment(newComment);
         setNewCommentText("");
-        setNewCommentUser("");
-        setNewCommentImage("");
         setNewCommentId("");
     };
+
 
 
     return (
