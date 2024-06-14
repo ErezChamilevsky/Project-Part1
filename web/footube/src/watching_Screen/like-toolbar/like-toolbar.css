@@ -48,5 +48,45 @@
 
 .like-dislike {
     display: flex;
+    align-items: center;
     gap: 5px;
+}
+
+.like-amount {
+    padding-top: 6%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 16px;
+}
+
+.modal-images {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* To distribute the images evenly */
+}
+
+.modal-body img {
+    max-width: 50px; /* Set a max-width to control the size of the images */
+    margin-right: 10px; /* Add margin between images */
+}
+
+.modal-header {
+    position: relative; /* Make the position of the close button relative to the modal-header */
+}
+
+.close {
+    position: absolute;
+    top: 10px; /* Adjust top position */
+    right: 10px; /* Adjust right position */
+    border-style:none;
+    color: black;
+    
+    background-color: transparent;
+    
+    
+}
+
+#fadedByReut{
+    display: block;
 }

@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "./like-toolbar.css";
 
-function LikeToolbar({ userName, userImg, userFolNum, vidLikes }) {
-    const [likeCount, setLikeCount] = useState(vidLikes);
-    const [liked, setLiked] = useState(false);
-    const [disliked, setDisliked] = useState(false);
+function LikeToolbar({ userName, userImg, likeCount, liked, disliked, handleLike, handleDislike }) {
+    const [showModal, setShowModal] = useState(false);
 
-    // Watch for changes in the vidLikes prop and update likeCount accordingly
-    useEffect(() => {
-        setLikeCount(vidLikes);
-    }, [vidLikes]);
-
-    const handleLike = () => {
-        if (!liked) {
-            setLikeCount(prevCount => prevCount + 1);
-            setLiked(true);
-            setDisliked(false);
-        }
+    const handleShareClick = () => {
+        // Open modal when "Share" button is clicked
+        setShowModal(true);
+        document.body.classList.add('modal-open'); // Add class to body to darken the background
     };
 
-    const handleDislike = () => {
-        if (!disliked) {
-            setLikeCount(prevCount => prevCount - 1);
-            setLiked(false);
-            setDisliked(true);
-        }
+    const handleCloseModal = () => {
+        setShowModal(false);
+        document.body.classList.remove('modal-open'); // Remove class from body to remove backdrop
     };
 
     return (
@@ -33,23 +21,45 @@ function LikeToolbar({ userName, userImg, userFolNum, vidLikes }) {
                 <img className="card-image" src={userImg} alt="User" />
                 <div className="card-details">
                     <h1 className="card-name">{userName}</h1>
-                    <p className="card-followers">{userFolNum} followers</p>
                 </div>
-                <button type="button" className="btn btn-dark">Subscribe</button>
             </div>
 
             <div className="right-content-tool">
                 <div className="other-buttons">
                     <div className='like-dislike'>
-                        <h6>{likeCount} likes</h6>
-                        <button type="button" className="btn btn-light" onClick={handleLike} disabled={liked}>Like</button>
-                        <button type="button" className="btn btn-light" onClick={handleDislike} disabled={disliked}>Dislike</button>
+                        <div className='like-amount'><p>{likeCount} likes</p></div>
+                        <button type="button" className="btn btn-light" onClick={handleLike}>{liked ? 'Unlike' : 'Like'}</button>
+                        <button type="button" className="btn btn-light" onClick={handleDislike}>{disliked ? 'Undislike' : 'Dislike'}</button>
                     </div>
-                    <button type="button" className="btn btn-lg btn-secondary" data-bs-toggle="popover"
-                        data-bs-title="Share the video" data-bs-content="web\footube\src\telegramIcon.png">Share</button>
-
+                    <button type="button" className="btn btn-lg btn-secondary" onClick={handleShareClick}>Share</button>
                 </div>
             </div>
+
+            {/* Modal */}
+            {showModal && (
+                <div className="modal fade show" id='fadedByReut' tabIndex="-1" role="dialog" >
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Share the video</h5>
+                                <button type="button" className="close" onClick={handleCloseModal}>
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                {/* Add your modal body content here */}
+                                <div className="modal-images">
+                                    <img src="\images\icons\telegramIcon.png" alt="Telegram Icon" />
+                                    <img src="\images\icons\gmail.png" alt="Gmail Icon" />
+                                    <img src="\images\icons\xIcon.png" alt="X Icon" />
+                                    <img src="\images\icons\whatsappicon.jpg" alt="WhatsApp Icon" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {showModal && <div className="modal-backdrop fade show"></div>}
         </div>
     );
 }

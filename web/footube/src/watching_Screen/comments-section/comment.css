@@ -4,10 +4,7 @@
     color: hwb(0 75% 20%);
 }
 
-.h1 {
-    font-size: 18px;
-    font-weight: unset;
-}
+
 
 .user-image {
     height: 40px;
@@ -19,6 +16,10 @@
     font-family: Arial, sans-serif;
     margin: 0;
     color: hsl(0, 0%, 20%);
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 10px;
+    text-align: left;
 }
 
 .other-buttons {
@@ -40,22 +41,22 @@
 
 .right-content {
     flex-grow: 0;
-    padding-left:5px;
+    padding-left: 5px;
 }
 
-.comment-block{
+.comment-block {
     margin: 3px;
     display: inline-flex;
 }
 
-.comment-text{
-    
+.comment-text {
+
     width: fit-content;
     text-align: left;
-    color:black;
+    color: black;
 }
 
-.container{
+.container {
     width: 100%;
     flex-direction: column;
 }

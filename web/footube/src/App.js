@@ -1,40 +1,43 @@
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Watch from './watching_Screen/watching-video';
+import Watch from './watching_Screen/watchingPage';
 import vidData from './data/vid.json'; //needed to change to state
 import userDataList from './data/user.json'; //needed to change to state
-import commentsDataList from './data/comments.json';
-
 import Login from './pages/Login/login.js';
 import Register from './pages/Register/Register.js';
 import AddNewVideoScreen from './pages/AddNewVideoScreen/AddNewVideoScreen.js';
-import react, { useState } from 'react';
 import Homepage from './pages/Homepage/Homepage.js';
-import userData from './data/user.json'
-import videos from './data/vid.json'
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 
 function App() {
 
-  const [users, setUsers] = useState([]); // define users array
+  const [loggedUser, setLoggedUser] = useState();
+  const [userSerialNumber, setUserSerialNumber] = useState(3);
+  const [videoSerialNumber, setVideoSerialNumber] = useState(11);
+  const [users, setUsers] = useState(userDataList);
+  const [videos, setVideos] = useState(vidData);
 
-  const [loggedUser, setLoggedUser] = useState([]);
-
-  const [currentVideos, setCurrentVideos] = useState(videos)
+  useEffect(() => {
+    if (userDataList.length > 0) {
+      setLoggedUser(userDataList[1]);
+    }
+  }, []);
 
   return (
 
     <div>
       <Routes>
-        <Route path="/" element= {<Homepage loggedUser={users} currentVideos={currentVideos} setCurrentVideos={setCurrentVideos} />}/>
-        <Route path="/login" element={ <Login users={users}/> } />
-        <Route path='/register' element={ <Register users={users} setUsers={setUsers}/> }></Route>
-        <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen /> }></Route>
-        <Route path='/watch/:vid_id' element={<Watch videoDataList={vidData} userDataList={userDataList} commentsDataList={commentsDataList} />} />
-       </Routes>
-    </div>
+        <Route path="/" element= {<Homepage loggedUser={loggedUser} currentVideos={videos} setCurrentVideos={setVideos} />}/>
+        <Route path="/login" element={ <Login users={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/> } />
+        <Route path='/register' element={ <Register users={users} setUsers={setUsers} userSerialNumber={userSerialNumber} setUserSerialNumber={setUserSerialNumber}/> }></Route>
+        <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen loggedUser={loggedUser} videos={videos} setVideos={setVideos} videoSerialNumber={videoSerialNumber} setVideoSerialNumber={setVideoSerialNumber} /> }></Route>
+        <Route path='/watch/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser}/>} />
 
+      </Routes>
+    </div>
   );
 }
 
