@@ -34,8 +34,7 @@ function SearchBar({setCurrentVideos}) {
                 </form>
             </div>
             <div className="header__icons_Homepage">
-                <button onClick="login()">Login</button>
-                <button onClick="register()">Register</button>
+               <Link to='/login' className="cr-acc btn btn-info registerButton">Login</Link>      
                 <i className="material-icons display-this">account_circle</i>
             </div>
         </div>
