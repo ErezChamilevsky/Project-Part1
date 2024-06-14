@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import './Register.css'; 
 import { Link } from 'react-router-dom';
@@ -61,11 +62,11 @@ function Register({ users, setUsers, userSerialNumber , setUserSerialNumber }) {
 
         // Add the new user to the users array
         const newUser = {
-            id: userSerialNumber,
+            userId: userSerialNumber,
             userName: formData.userName,
-            password: formData.password,
+            userPassword: formData.password,
             displayName: formData.displayName,
-            imageFile: formData.imageFile,
+            userImgFile: formData.imageFile,
         };
         setUserSerialNumber(userSerialNumber + 1);
         setUsers([...users, newUser]);
@@ -86,7 +87,7 @@ function Register({ users, setUsers, userSerialNumber , setUserSerialNumber }) {
 
     return (
         <div className="main-div"> 
-           <Link to='/' className="cr-acc btn btn-info login-page-link">Login Page</Link>    
+           <Link to='/login' className="cr-acc btn btn-info login-page-link">Login Page</Link>    
             <div className="card">
                 <div className="card-body">
                     Sign in Form
