@@ -1,12 +1,17 @@
  [
         {
-            "user_id": 1,
-            "user_img": "/images/users-images/chadLogo.jpg",
-            "user_name": "Chad"
+            "userId": 1,
+            "userName": "Chad",
+            "userPassword": "Aa123456",
+            "displayName": "Chad",
+            "userImgFile": "/images/users-images/chadLogo.jpg",
+           
         },
         {
-            "user_id": 2,
-            "user_img": "/images/users-images/srutonimLogo.jpg",
-            "user_name": "Srutonim"
+            "userId": 2,
+            "userName": "Srutonim",
+            "userPassword": "Zx123456",
+            "displayName": "Srutonim",
+            "userImgFile": "/images/users-images/srutonimLogo.jpg",
         }
     ]
