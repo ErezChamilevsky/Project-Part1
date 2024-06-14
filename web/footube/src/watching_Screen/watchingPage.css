@@ -44,6 +44,7 @@ video{
     height : auto;
     border-radius: 10px;
     border:0px;
+      max-height: 450px;
 }
 .right-block-vid-list {
   flex: 0 0 24%;
@@ -72,13 +73,14 @@ video{
   padding: 5px;
 }
 
-.title {
+.vidTitle {
   width: 100%;
   height: fit-content;
   padding: 4px;
   padding-left: 0px;
   font-size: 20px;
   font-weight: bold;
+  display: flex;
 }
 
 .comment-section {

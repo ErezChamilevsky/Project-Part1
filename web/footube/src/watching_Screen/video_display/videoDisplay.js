@@ -1,12 +1,11 @@
-function VideoDisplay({video_src}){
-    
-    
-    return(
-        <video controls>
-            <source src={video_src} type="video/mp4" />
+import React from 'react';
+
+function VideoDisplay({ vid_src }) {
+    return (
+        <video key={vid_src} autoplay="true" controls >
+            <source src={vid_src} type="video/mp4" />
         </video>
     );
 }
-
 
 export default VideoDisplay;
