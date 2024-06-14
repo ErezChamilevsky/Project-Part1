@@ -20,14 +20,14 @@ function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, s
     const uploadVideo = {
       id: videoSerialNumber,
       img: imgSrc ? URL.createObjectURL(imgSrc) : '',
-      videoSrc: videoSrc ? URL.createObjectURL(videoSrc) : '',
+      video_src: videoSrc ? URL.createObjectURL(videoSrc) : '',
       title: videoTitle,
-      userName: loggedUser.userName,
-      publicationDate: date,
+      artist: loggedUser.userName,
+      publication_date: date,
       views: 0,
-      description: videoDescription,
+      deatils: videoDescription,
       likes: 0,
-      userId: loggedUser.id
+      user_id: loggedUser.id
     };
 
     setVideoSerialNumber(videoSerialNumber + 1);
@@ -65,3 +65,4 @@ function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, s
 }
 
 export default AddNewVideoScreen;
+
