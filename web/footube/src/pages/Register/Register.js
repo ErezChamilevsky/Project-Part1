@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Register.css'; 
 import { Link } from 'react-router-dom';
 
-function Register({ users, setUsers }) {
+function Register({ users, setUsers, userSerialNumber , setUserSerialNumber }) {
     const [formData, setFormData] = useState({   // hold the current user that register
         userName: '',
         displayName: '',
@@ -61,11 +61,13 @@ function Register({ users, setUsers }) {
 
         // Add the new user to the users array
         const newUser = {
+            id: userSerialNumber,
             userName: formData.userName,
             password: formData.password,
             displayName: formData.displayName,
             imageFile: formData.imageFile,
         };
+        setUserSerialNumber(userSerialNumber + 1);
         setUsers([...users, newUser]);
 
         // Clear the form
