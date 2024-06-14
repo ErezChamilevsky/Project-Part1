@@ -1,32 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import './video-list.css';
-import videoData from '../../data/vid.json';
+import { Link } from 'react-router-dom';
 
-const VideoList = () => {
+function VideoList({ videoData }) {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
         setVideos(videoData);
-    }, []);
+    }, [videoData]);
 
-    return (
+    const DisplayVideoList = () => (
         <div className="video-list">
             {videos.map((video) => (
-                <div key={video.id} className="video-item">
-                    <div className="video-thumbnail">
-                        <img src={video.img} />
+                <Link key={video.id} to={`/watch/${video.id}`}>
+                    <div className="video-item">
+                        <div className="video-thumbnail">
+                            <img src={video.img} alt={video.title} />
+                        </div>
+                        <div className="video-details">
+                            <h3 className="video-title">{video.title}</h3>
+                            <p className='video-meta'>{video.artist}</p>
+                            <p className="video-meta">
+                                {video.views} views &bull; {video.publication_date}
+                            </p>
+                        </div>
                     </div>
-                    <div className="video-details">
-                        <h3 className="video-title">{video.title}</h3>
-                        <p className="video-uploader">{video.uploader}</p>
-                        <p className="video-meta">
-                            {video.views} views &bull; {video.timeSinceUpload}
-                        </p>
-                    </div>
-                </div>
+                </Link>
             ))}
         </div>
     );
-};
+
+    return <DisplayVideoList />;
+}
 
 export default VideoList;

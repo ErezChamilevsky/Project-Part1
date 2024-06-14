@@ -1,25 +1,44 @@
 import './App.css';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Watch from './watching_Screen/watchingPage';
+import vidData from './data/vid.json'; //needed to change to state
+import userDataList from './data/user.json'; //needed to change to state
 import Login from './pages/Login/login.js';
 import Register from './pages/Register/Register.js';
 import AddNewVideoScreen from './pages/AddNewVideoScreen/AddNewVideoScreen.js';
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 function App() {
-  const [users, setUsers] = useState([]); // define users array
+
   const [loggedUser, setLoggedUser] = useState();
-  const [userSerialNumber, setUserSerialNumber] = useState(1);
-  const [videoSerialNumber, setVideoSerialNumber] = useState(1);
-  const[videos, setVideos] = useState([]);
+  const [userSerialNumber, setUserSerialNumber] = useState(3);
+  const [videoSerialNumber, setVideoSerialNumber] = useState(11);
+
+  const [users, setUsers] = useState(userDataList);
+  const [videos, setVideos] = useState(vidData);
+
+  useEffect(() => {
+    if (userDataList.length > 0) {
+      setLoggedUser(userDataList[1]);
+    }
+  }, []);
+
+
 
   return (
+
     <div>
       <Routes>
+       
         <Route path="/" element={ <Login users={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/> } />
         <Route path='/register' element={ <Register users={users} setUsers={setUsers} userSerialNumber={userSerialNumber} setUserSerialNumber={setUserSerialNumber}/> }></Route>
         <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen loggedUser={loggedUser} videos={videos} setVideos={setVideos} videoSerialNumber={videoSerialNumber} setVideoSerialNumber={setVideoSerialNumber} /> }></Route>
-       </Routes>
+        <Route path='/watch/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser}/>} />
+
+      </Routes>
     </div>
 
   );

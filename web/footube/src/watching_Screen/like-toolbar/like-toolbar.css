@@ -1,23 +1,19 @@
-.card {
+.bar {
     margin: 10px;
     display: flex;
     justify-content: space-between;
-    /* Distribute space between left and right sides */
     align-items: center;
-    /* Align items vertically */
 }
 
-.left-content {
+.left-content-tool {
     display: flex;
     align-items: center;
-    /* Align items vertically */
     flex-grow: 1;
-    /* Take up all available space */
 }
 
-.right-content {
-    flex-grow: 0;
-    /* Do not grow */
+.right-content-tool {
+    display: flex;
+    align-items: center;
 }
 
 .card-image {
@@ -27,42 +23,70 @@
 }
 
 .card-details {
-    display: block;
-    text-align: left;
+    flex-direction: column;
     padding-left: 7px;
     padding-right: 7px;
+    font-size: 13px;
 }
 
 .card-name {
     font-family: Arial, sans-serif;
     margin: 0;
     color: hsl(0, 0%, 20%);
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .card-followers {
     font-family: Arial, sans-serif;
 }
 
-.card-sub-button {
-    margin-left: 10px;
-    /* Space between details and subscribe button */
-    border-radius: 5%;
-}
-
 .other-buttons {
     display: flex;
     gap: 5px;
-    /* Space between buttons */
 }
 
-.like {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-left: 0px;
+.like-dislike {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.dislike {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-right: 0px;
+.like-amount {
+    padding-top: 6%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 16px;
+}
+
+.modal-images {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* To distribute the images evenly */
+}
+
+.modal-body img {
+    max-width: 50px; /* Set a max-width to control the size of the images */
+    margin-right: 10px; /* Add margin between images */
+}
+
+.modal-header {
+    position: relative; /* Make the position of the close button relative to the modal-header */
+}
+
+.close {
+    position: absolute;
+    top: 10px; /* Adjust top position */
+    right: 10px; /* Adjust right position */
+    border-style:none;
+    color: black;
+    
+    background-color: transparent;
+    
+    
+}
+
+#fadedByReut{
+    display: block;
 }

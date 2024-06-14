@@ -68,7 +68,7 @@ function Login({ users, setLoggedUser,loggedUser }) {
               <div style={{ color: 'red' }}>UserName or password wrong</div>
             )}
           <p className="not-registered ">Not registered?</p>    
-              <Link to='/register' className="cr-acc btn btn-info">Create an account</Link>    
+              <Link to='/register' className="cr-acc btn btn-info registerButton">Create an account</Link>    
         </form>
       </div>
     </div>
