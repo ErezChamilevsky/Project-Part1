@@ -4,7 +4,7 @@
             "userName": "Chad",
             "userPassword": "Aa123456",
             "displayName": "Chad",
-            "userImgFile": "/images/users-images/chadLogo.jpg",
+            "userImgFile": "/images/users-images/chadLogo.jpg"
            
         },
         {
@@ -12,6 +12,6 @@
             "userName": "Srutonim",
             "userPassword": "Zx123456",
             "displayName": "Srutonim",
-            "userImgFile": "/images/users-images/srutonimLogo.jpg",
+            "userImgFile": "/images/users-images/srutonimLogo.jpg"
         }
     ]
