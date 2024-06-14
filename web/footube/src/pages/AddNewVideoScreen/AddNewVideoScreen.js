@@ -1,3 +1,4 @@
+
 import React from "react";
 import './AddNewVideoScreen.css';
 import { Link } from 'react-router-dom';
@@ -65,4 +66,3 @@ function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, s
 }
 
 export default AddNewVideoScreen;
-
