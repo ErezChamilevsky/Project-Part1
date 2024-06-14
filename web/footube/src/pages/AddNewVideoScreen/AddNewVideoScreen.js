@@ -25,7 +25,7 @@ function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, s
       artist: loggedUser.userName,
       publication_date: date,
       views: 0,
-      deatils: videoDescription,
+      details: videoDescription,
       likes: 0,
       user_id: loggedUser.id
     };
