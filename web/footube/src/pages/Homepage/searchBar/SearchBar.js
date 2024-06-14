@@ -11,7 +11,7 @@ function SearchBar({setCurrentVideos}) {
     }
 
     function liozGay() {
-        event.preventDefault();
+        //event.preventDefault();
         let lastInput = sessionStorage.getItem('currentSessionSearch')
         const filteredVideos = videos.filter(video => video.title.toLowerCase().includes(lastInput.toLowerCase()))
         // alert(filteredVideos.length)
