@@ -1,30 +1,29 @@
 import '../Homepage.css'
+import { Link } from 'react-router-dom';
 
 function VideoItem(videos) {
 
-    const handleOnClick= () => {
-        alert("LIOZ GAY");
-    }
 
     return (
         <div className="video_Homepage">
-            <div className="video__thumbnail_Homepage" >
-                <button className="video_click_button_Homepage" onClick={handleOnClick}>
-                    <img src={videos.img}/>
-                </button>
-            </div>
-            <div className="video__details_Homepage">
-                <div className="author_Homepage">
-                    <img src={videos.uploader_pic}/>
+            <Link key={videos.id} to={`watch/${videos.id}`}>
+                <div className="video__thumbnail_Homepage" >
+
+                    <img src={videos.img} />
+
                 </div>
-                <div className="title_Homepage">
-                    <h3>
-                        {videos.title}
-                    </h3>
-                    <a href="">{videos.artist}</a>
-                    <span>{videos.views} Views • {videos.publication_date}</span>
+                <div className="video__details_Homepage">
+                    <div className="author_Homepage">
+                    </div>
+                    <div className="title_Homepage">
+                        <h3>
+                            {videos.title}
+                        </h3>
+                        <a href="">{videos.artist}</a>
+                        <span>{videos.views} Views • {videos.publication_date}</span>
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
     );
 }
