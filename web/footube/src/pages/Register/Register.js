@@ -69,7 +69,7 @@ function Register({ users, setUsers, userSerialNumber , setUserSerialNumber }) {
         };
         setUserSerialNumber(userSerialNumber + 1);
         setUsers([...users, newUser]);
-
+        
         // Clear the form
         setFormData({
             userName: '',
