@@ -24,7 +24,7 @@ function App() {
 
     <div>
       <Routes>
-        <Route path="/" element= {<Homepage loggedUser={loggedUser} currentVideos={videos} setCurrentVideos={setVideos} />}/>
+        <Route path="/" element= {<Homepage loggedUser={loggedUser} setLoggedUser={setLoggedUser} currentVideos={videos} setCurrentVideos={setVideos} />}/>
         <Route path="/login" element={ <Login users={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/> } />
         <Route path='/register' element={ <Register users={users} setUsers={setUsers} userSerialNumber={userSerialNumber} setUserSerialNumber={setUserSerialNumber}/> }></Route>
         <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen loggedUser={loggedUser} videos={videos} setVideos={setVideos} videoSerialNumber={videoSerialNumber} setVideoSerialNumber={setVideoSerialNumber} /> }></Route>
