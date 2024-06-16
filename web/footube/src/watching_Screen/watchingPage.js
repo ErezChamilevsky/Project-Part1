@@ -9,8 +9,7 @@ import commentsDataList from '../data/comments.json';
 import LikesHandler from './like-toolbar/likesHandler';
 import SearchBar from '../pages/Homepage/searchBar/SearchBar';
 
-
-function Watch({ videoDataList, userDataList, loggedUser }) {
+function Watch({ videoDataList, userDataList, loggedUser, setLoggedUser }) {
   const { vid_id } = useParams();  // Extract vid_id from useParams
   const intId = parseInt(vid_id, 10);
 
@@ -41,7 +40,7 @@ function Watch({ videoDataList, userDataList, loggedUser }) {
     <div className="container">
 
       <div className="up-toolbar">
-        <SearchBar/>
+        <SearchBar setCurrentVideos={videoDataList} loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
       </div>
       <div className='video-container'>
 
@@ -54,8 +53,8 @@ function Watch({ videoDataList, userDataList, loggedUser }) {
               <h4>{currentVideoFromVideoList.title}</h4>
             </div>
             <LikesHandler
-              userName={currentUser.user_name}
-              userImg={currentUser.user_img}
+              userName={currentUser.displayName}
+              userImg={currentUser.userImgFile}
               vidLikes={currentVideoFromVideoList.likes}
               likesData={likesData}
               setLikesData={setLikesData}
