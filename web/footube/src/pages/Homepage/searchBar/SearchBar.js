@@ -11,11 +11,10 @@ function SearchBar({setCurrentVideos}) {
         sessionStorage.setItem('currentSessionSearch', searchInput);
     }
 
-    function liozGay() {
-        //event.preventDefault();
+    function searchFunction(event) {
+        event.preventDefault();
         let lastInput = sessionStorage.getItem('currentSessionSearch')
         const filteredVideos = videos.filter(video => video.title.toLowerCase().includes(lastInput.toLowerCase()))
-        // alert(filteredVideos.length)
         setCurrentVideos(filteredVideos)
     }
 
@@ -31,7 +30,7 @@ function SearchBar({setCurrentVideos}) {
             <div className="header__search_Homepage">
                 <form action="">
                     <input id="search_bar_Homepage" type="text" placeholder="Search" onChange={handleSearch} />
-                    <button onClick={liozGay}><i className="material-icons">search</i></button>
+                    <button onClick={searchFunction}><i className="material-icons">search</i></button>
                 </form>
             </div>
             <div className="header__icons_Homepage">
