@@ -9,7 +9,6 @@ import commentsDataList from '../data/comments.json';
 import LikesHandler from './like-toolbar/likesHandler';
 import SearchBar from '../pages/Homepage/searchBar/SearchBar';
 
-
 function Watch({ videoDataList, userDataList, loggedUser, setLoggedUser }) {
   const { vid_id } = useParams();  // Extract vid_id from useParams
   const intId = parseInt(vid_id, 10);

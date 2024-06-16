@@ -27,10 +27,8 @@ function SearchBar({setCurrentVideos, loggedUser, setLoggedUser}) {
     return (
         <div className="header_Homepage">
             <div className="header__left_Homepage" position="relative">
-                
                 <i id="menu" className="material-icons">menu</i>
                 <Link to='/' id="youtubeLogo" />
-                
                 Youtube
             </div>
             <div className="header__search_Homepage">
