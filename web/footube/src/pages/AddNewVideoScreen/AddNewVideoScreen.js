@@ -38,7 +38,7 @@ function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, s
     console.log(loggedUser);
     console.log(videos);
   };
-
+  
   return (
     <div>
       <Link to='/' className="cr-acc btn btn-info login-page-btn">Home Page</Link>
