@@ -1,11 +1,12 @@
 
 import React from "react";
 import './AddNewVideoScreen.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, setVideoSerialNumber }) {
   const currentDate = new Date();
   const date = currentDate.toISOString().slice(0, 10); // extract the cuurent date
+  const navigate = useNavigate();
 
   const handleUpload = () => {
     const videoTitle = document.getElementById('videoTitle').value;
@@ -33,13 +34,14 @@ function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, s
 
     setVideoSerialNumber(videoSerialNumber + 1);
     setVideos([...videos, uploadVideo]);
-    console.log(loggedUser)
-    console.log(videos)
+    navigate('/');
+    console.log(loggedUser);
+    console.log(videos);
   };
 
   return (
     <div>
-      <Link to='/' className="cr-acc btn btn-info login-page-btn">Login Page</Link>
+      <Link to='/' className="cr-acc btn btn-info login-page-btn">Home Page</Link>
       <div className="title">Upload Video</div>
       <div className="vid-tit">Video Title</div>
       <textarea id="videoTitle" className="vid-tit-input" placeholder="Type here..." />
