@@ -1,9 +1,10 @@
 import '../Homepage.css'
+import './SearchBar.css';
 import videos from '../../../data/vid.json'
 import { Link } from 'react-router-dom';
 
 
-function SearchBar({setCurrentVideos}) {
+function SearchBar({setCurrentVideos, loggedUser, setLoggedUser}) {
 
 
     function handleSearch() {
@@ -11,12 +12,15 @@ function SearchBar({setCurrentVideos}) {
         sessionStorage.setItem('currentSessionSearch', searchInput);
     }
 
-    function liozGay() {
-        //event.preventDefault();
+    function searchFunction(event) {
+        event.preventDefault();
         let lastInput = sessionStorage.getItem('currentSessionSearch')
         const filteredVideos = videos.filter(video => video.title.toLowerCase().includes(lastInput.toLowerCase()))
-        // alert(filteredVideos.length)
         setCurrentVideos(filteredVideos)
+    }
+
+    function handleLogOut(){
+        setLoggedUser('');
     }
 
 
@@ -31,16 +35,24 @@ function SearchBar({setCurrentVideos}) {
             <div className="header__search_Homepage">
                 <form action="">
                     <input id="search_bar_Homepage" type="text" placeholder="Search" onChange={handleSearch} />
-                    <button onClick={liozGay}><i className="material-icons">search</i></button>
+                    <button onClick={searchFunction}><i className="material-icons">search</i></button>
                 </form>
             </div>
             <div className="header__icons_Homepage">
-                <div>
-                <Link to='/addNewVideoScreen' className="cr-acc btn btn-info registerButton">Add New Video</Link>    
-                <Link to='/login' className="cr-acc btn btn-info registerButton">Login</Link>    
+                
+               <div><Link to='/addNewVideoScreen' className="cr-acc btn btn-info registerButton">Add New Video</Link></div>    
+                <div><Link to='/login' className="cr-acc btn btn-info registerButton login-btn">Login</Link></div>  
+                <div><button onClick={handleLogOut} className="cr-acc btn btn-info registerButton">Log Out</button></div>
 
-            </div>
-                <i className="material-icons display-this">account_circle</i>
+                {/* this lines display the userName and the image in right side of search bar*/}
+                {loggedUser ? (
+                    <div className="loggedUser__info">
+                        <img src={loggedUser.userImgFile} alt="Profile" className="imageFile" />
+                        <span className="userName">{loggedUser.userName}</span>
+                    </div>
+                ) : (
+                    <i className="material-icons display-this">account_circle</i>
+                )}
             </div>
         </div>
     );

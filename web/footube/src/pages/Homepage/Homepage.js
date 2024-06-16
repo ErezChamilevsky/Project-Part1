@@ -7,7 +7,7 @@ import React, {useState} from 'react'
 
 
 
-function Homepage({loggedUser, currentVideos, setCurrentVideos}) {
+function Homepage({loggedUser,setLoggedUser, currentVideos, setCurrentVideos}) {
 
 
     const videoList = currentVideos.map((video, key) => {
@@ -33,7 +33,7 @@ function Homepage({loggedUser, currentVideos, setCurrentVideos}) {
 
                 {/* <!-- Header Starts --> */}
 
-                <SearchBar setCurrentVideos={setCurrentVideos}/>
+                <SearchBar setCurrentVideos={setCurrentVideos} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
 
                 {/* <!-- Header Ends --> */}
 
