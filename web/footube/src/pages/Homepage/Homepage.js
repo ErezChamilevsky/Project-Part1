@@ -33,7 +33,7 @@ function Homepage({loggedUser, currentVideos, setCurrentVideos}) {
 
                 {/* <!-- Header Starts --> */}
 
-                <SearchBar setCurrentVideos={setCurrentVideos}/>
+                <SearchBar setCurrentVideos={setCurrentVideos} loggedUser={loggedUser}/>
 
                 {/* <!-- Header Ends --> */}
 

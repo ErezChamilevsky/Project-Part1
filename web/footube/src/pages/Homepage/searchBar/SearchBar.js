@@ -1,9 +1,10 @@
 import '../Homepage.css'
+import './SearchBar.css';
 import videos from '../../../data/vid.json'
 import { Link } from 'react-router-dom';
 
 
-function SearchBar({setCurrentVideos}) {
+function SearchBar({setCurrentVideos, loggedUser}) {
 
 
     function handleSearch() {
@@ -34,12 +35,19 @@ function SearchBar({setCurrentVideos}) {
                 </form>
             </div>
             <div className="header__icons_Homepage">
-                <div>
-                <Link to='/addNewVideoScreen' className="cr-acc btn btn-info registerButton">Add New Video</Link>    
-                <Link to='/login' className="cr-acc btn btn-info registerButton">Login</Link>    
-
-            </div>
-                <i className="material-icons display-this">account_circle</i>
+                
+               <div><Link to='/addNewVideoScreen' className="cr-acc btn btn-info registerButton">Add New Video</Link></div>    
+                <div><Link to='/login' className="cr-acc btn btn-info registerButton login-btn">Login</Link></div>  
+                
+                {/* this lines display the userName and the image in right side of search bar*/}
+                {loggedUser ? (
+                    <div className="loggedUser__info">
+                        <img src={loggedUser.userImgFile} alt="Profile" className="imageFile" />
+                        <span className="userName">{loggedUser.userName}</span>
+                    </div>
+                ) : (
+                    <i className="material-icons display-this">account_circle</i>
+                )}
             </div>
         </div>
     );
