@@ -7,6 +7,8 @@ import VideoDisplay from './video_display/videoDisplay';
 import React, { useState, useEffect } from 'react';
 import commentsDataList from '../data/comments.json';
 import LikesHandler from './like-toolbar/likesHandler';
+import SearchBar from '../pages/Homepage/searchBar/SearchBar';
+
 
 function Watch({ videoDataList, userDataList, loggedUser }) {
   const { vid_id } = useParams();  // Extract vid_id from useParams
@@ -39,7 +41,7 @@ function Watch({ videoDataList, userDataList, loggedUser }) {
     <div className="container">
 
       <div className="up-toolbar">
-        <p>this is a tool bar {currentVideoFromVideoList.likes} {currentVideoFromVideoList.video_src}</p>
+        <SearchBar/>
       </div>
       <div className='video-container'>
 

@@ -17,8 +17,9 @@ body {
 }
 
 .up-toolbar {
-  width: 100%;
-  height: 4vh;
+  /* width: 100%; */
+  /* height: 4vh; */
+  
   background-color: hwb(215 85% 2%);
   margin-top: 1px;
 }
