@@ -20,12 +20,6 @@ function App() {
   const [users, setUsers] = useState(userDataList);
   const [videos, setVideos] = useState(vidData);
 
-  useEffect(() => {
-    if (userDataList.length > 0) {
-      setLoggedUser(userDataList[1]);
-    }
-  }, []);
-
   return (
 
     <div>
@@ -35,7 +29,6 @@ function App() {
         <Route path='/register' element={ <Register users={users} setUsers={setUsers} userSerialNumber={userSerialNumber} setUserSerialNumber={setUserSerialNumber}/> }></Route>
         <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen loggedUser={loggedUser} videos={videos} setVideos={setVideos} videoSerialNumber={videoSerialNumber} setVideoSerialNumber={setVideoSerialNumber} /> }></Route>
         <Route path='/watch/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser}/>} />
-
       </Routes>
     </div>
   );
