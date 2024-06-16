@@ -7,37 +7,30 @@ import userDataList from './data/user.json'; //needed to change to state
 import Login from './pages/Login/login.js';
 import Register from './pages/Register/Register.js';
 import AddNewVideoScreen from './pages/AddNewVideoScreen/AddNewVideoScreen.js';
+import Homepage from './pages/Homepage/Homepage.js';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 
 
 function App() {
 
-
+  const [loggedUser, setLoggedUser] = useState();
+  const [userSerialNumber, setUserSerialNumber] = useState(3);
+  const [videoSerialNumber, setVideoSerialNumber] = useState(11);
   const [users, setUsers] = useState(userDataList);
   const [videos, setVideos] = useState(vidData);
-  const [loggedUser, setLoggedUser] = useState();
- 
-
-  useEffect(() => {
-    if (userDataList.length > 0) {
-      setLoggedUser(userDataList[1]);
-    }
-  }, []);
-
-
 
   return (
 
     <div>
       <Routes>
-        <Route path="/" element={ <Login users={users}/> } />
-        <Route path='/register' element={ <Register users={users} setUsers={setUsers}/> }></Route>
-        <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen /> }></Route>
+        <Route path="/" element= {<Homepage loggedUser={loggedUser} currentVideos={videos} setCurrentVideos={setVideos} />}/>
+        <Route path="/login" element={ <Login users={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/> } />
+        <Route path='/register' element={ <Register users={users} setUsers={setUsers} userSerialNumber={userSerialNumber} setUserSerialNumber={setUserSerialNumber}/> }></Route>
+        <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen loggedUser={loggedUser} videos={videos} setVideos={setVideos} videoSerialNumber={videoSerialNumber} setVideoSerialNumber={setVideoSerialNumber} /> }></Route>
         <Route path='/watch/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser}/>} />
-       </Routes>
+      </Routes>
     </div>
-
   );
 }
 
