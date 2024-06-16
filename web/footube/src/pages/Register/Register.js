@@ -66,7 +66,7 @@ function Register({ users, setUsers, userSerialNumber , setUserSerialNumber }) {
             userName: formData.userName,
             userPassword: formData.password,
             displayName: formData.displayName,
-            userImgFile: formData.imageFile,
+            userImgFile: formData.imageFile ? URL.createObjectURL(formData.imageFile) : '',
         };
         setUserSerialNumber(userSerialNumber + 1);
         setUsers([...users, newUser]);
