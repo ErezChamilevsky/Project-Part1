@@ -20,16 +20,17 @@ function SearchBar({setCurrentVideos, loggedUser, setLoggedUser}) {
     }
 
     function handleLogOut(){
-        setLoggedUser('');
+        setLoggedUser(null);
     }
 
 
     return (
         <div className="header_Homepage">
             <div className="header__left_Homepage" position="relative">
+                
                 <i id="menu" className="material-icons">menu</i>
-                <div id="youtubeLogo">
-                </div>
+                <Link to='/' id="youtubeLogo" />
+                
                 Youtube
             </div>
             <div className="header__search_Homepage">
