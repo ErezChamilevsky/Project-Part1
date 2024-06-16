@@ -4,7 +4,7 @@ import videos from '../../../data/vid.json'
 import { Link } from 'react-router-dom';
 
 
-function SearchBar({setCurrentVideos, loggedUser}) {
+function SearchBar({setCurrentVideos, loggedUser, setLoggedUser}) {
 
 
     function handleSearch() {
@@ -17,6 +17,10 @@ function SearchBar({setCurrentVideos, loggedUser}) {
         let lastInput = sessionStorage.getItem('currentSessionSearch')
         const filteredVideos = videos.filter(video => video.title.toLowerCase().includes(lastInput.toLowerCase()))
         setCurrentVideos(filteredVideos)
+    }
+
+    function handleLogOut(){
+        setLoggedUser('');
     }
 
 
@@ -38,7 +42,8 @@ function SearchBar({setCurrentVideos, loggedUser}) {
                 
                <div><Link to='/addNewVideoScreen' className="cr-acc btn btn-info registerButton">Add New Video</Link></div>    
                 <div><Link to='/login' className="cr-acc btn btn-info registerButton login-btn">Login</Link></div>  
-                
+                <div><button onClick={handleLogOut} className="cr-acc btn btn-info registerButton">Log Out</button></div>
+
                 {/* this lines display the userName and the image in right side of search bar*/}
                 {loggedUser ? (
                     <div className="loggedUser__info">
