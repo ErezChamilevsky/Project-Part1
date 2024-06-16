@@ -9,8 +9,8 @@ function AddComment({ addComment , commentId, loggedUser}) {
 
 
     const [newCommentText, setNewCommentText] = useState("");
-    const newCommentUser = loggedUser.user_name; 
-    const newCommentImage = loggedUser.user_img;
+    const newCommentUser = loggedUser.displayName; 
+    const newCommentImage = loggedUser.userImgFile;
     const [newCommentId, setNewCommentId] = useState("");
 
 

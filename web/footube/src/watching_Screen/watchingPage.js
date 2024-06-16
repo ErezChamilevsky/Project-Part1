@@ -52,8 +52,8 @@ function Watch({ videoDataList, userDataList, loggedUser }) {
               <h4>{currentVideoFromVideoList.title}</h4>
             </div>
             <LikesHandler
-              userName={currentUser.user_name}
-              userImg={currentUser.user_img}
+              userName={currentUser.displayName}
+              userImg={currentUser.userImgFile}
               vidLikes={currentVideoFromVideoList.likes}
               likesData={likesData}
               setLikesData={setLikesData}
