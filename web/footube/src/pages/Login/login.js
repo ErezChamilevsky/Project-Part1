@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 import './login.css'; 
 
@@ -8,6 +8,8 @@ function Login({ users, setLoggedUser,loggedUser }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userFound, setUserFound] = useState(null); //this state for visualtion if the user founnd or not.
+
+  const navigate = useNavigate(); // Initialize the navigate function
 
 
   //fuction that handle with user that want to enter to site , and check if he exist
@@ -22,6 +24,7 @@ function Login({ users, setLoggedUser,loggedUser }) {
         const userFound = true; // Assume the user doesn't exist for demonstration
         setUserFound(userFound);
         setLoggedUser(userExists); //define the loggedUser state be current user who log in
+        navigate('/'); // Navigate to the home page on successful login
         console.log(userExists);
         console.log(loggedUser);
       } else {
