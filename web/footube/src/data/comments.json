@@ -2,6 +2,6 @@
     "videoId" :1,
     "userImg": "/images/users-images/chadLogo.jpg",
     "userName":"GIGA",
-    "comment":"this is a comment",
+    "content":"this is a comment",
     "commentId":1
 }]

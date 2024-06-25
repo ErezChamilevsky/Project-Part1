@@ -30,7 +30,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
 
     const handleEditComment = (index) => {
         const updatedComments = [...commentList];
-        updatedComments[index].comment = editCommentText;
+        updatedComments[index].content = editCommentText;
         setCommentList(updatedComments);
         setEditIndex(null);
         setEditCommentText("");
@@ -59,7 +59,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                                         rows="3"
                                         value={editCommentText}
                                         onChange={(e) => setEditCommentText(e.target.value)}
-                                        placeholder={comment.comment}
+                                        placeholder={comment.content}
                                     />
                                     <button
                                         type="button"
@@ -81,12 +81,12 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                                     <Comment
                                         userName={comment.userName}
                                         userImage={comment.userImg}
-                                        comment={comment.comment}
+                                        comment={comment.content}
                                     />
                                     <button
                                         type="button"
                                         className="btn btn-outline-secondary"
-                                        onClick={() => setEditIndex(index) || setEditCommentText(comment.comment)}
+                                        onClick={() => setEditIndex(index) || setEditCommentText(comment.content)}
                                     >
                                         Edit
                                     </button>
@@ -116,7 +116,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                         <Comment
                             userName={comment.userName}
                             userImage={comment.userImg}
-                            comment={comment.comment}
+                            comment={comment.content}
                         />
                     </div>
                 ))}

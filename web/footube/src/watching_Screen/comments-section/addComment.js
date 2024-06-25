@@ -19,7 +19,7 @@ function AddComment({ addComment , commentId, loggedUser}) {
             videoId: intId,
             userName: newCommentUser,
             userImg: newCommentImage,
-            comment: newCommentText,
+            content: newCommentText,
             commentId: commentId
         };
         addComment(newComment);
