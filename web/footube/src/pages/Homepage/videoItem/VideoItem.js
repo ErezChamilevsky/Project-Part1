@@ -19,7 +19,7 @@ function VideoItem(videos) {
                         <h3>
                             {videos.title}
                         </h3>
-                        <a href="">{videos.userDisplay}</a>
+                        <a href="">{videos.displayName}</a>
                         <span>{videos.views} Views • {videos.publicationDate}</span>
                     </div>
                 </div>

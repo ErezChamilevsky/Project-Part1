@@ -24,7 +24,7 @@ function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, s
       img: imgSrc ? URL.createObjectURL(imgSrc) : '',
       videoSrc: videoSrc ? URL.createObjectURL(videoSrc) : '',
       title: videoTitle,
-      userDisplay: loggedUser.userName,
+      displayName: loggedUser.userName,
       publicationDate: date,
       views: 0,
       description: videoDescription,
