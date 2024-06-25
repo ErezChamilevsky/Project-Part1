@@ -16,11 +16,11 @@ function AddComment({ addComment , commentId, loggedUser}) {
 
     const handleAddComment = () => {
         const newComment = {
-            video_id: intId,
+            videoId: intId,
             userName: newCommentUser,
             userImg: newCommentImage,
             comment: newCommentText,
-            comment_id: commentId
+            commentId: commentId
         };
         addComment(newComment);
         setNewCommentText("");

@@ -12,15 +12,15 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
     const [editIndex, setEditIndex] = useState(null);
     const [editCommentText, setEditCommentText] = useState("");
 
-    const handleRemoveComment = (comment_id) => {
-        setCommentList(prevComments => prevComments.filter(comment => comment.comment_id !== comment_id));
+    const handleRemoveComment = (commentId) => {
+        setCommentList(prevComments => prevComments.filter(comment => comment.commentId !== commentId));
     };
 
-    const commentId = commentList.length > 0 ? commentList[commentList.length - 1].comment_id + 1 : 1;
+    const commentId = commentList.length > 0 ? commentList[commentList.length - 1].commentId + 1 : 1;
 
     useEffect(() => {
         if (vid_id && commentList) {
-            setFilteredCommentList(commentList.filter(comment => comment.video_id === intId));
+            setFilteredCommentList(commentList.filter(comment => comment.videoId === intId));
         }
     }, [vid_id, commentList]);
 
@@ -50,7 +50,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                 <AddComment addComment={handleAddComment} commentId={commentId} loggedUser={loggedUser} />
                 <div className='comment-list'>
                     {filteredCommentList.map((comment, index) => (
-                        <div key={comment.comment_id} className="comment-item">
+                        <div key={comment.commentId} className="comment-item">
                             {editIndex === index ? (
 
                                 <div>
@@ -93,7 +93,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                                     <button
                                         type="button"
                                         className="btn btn-outline-secondary"
-                                        onClick={() => handleRemoveComment(comment.comment_id)}
+                                        onClick={() => handleRemoveComment(comment.commentId)}
                                     >
                                         Remove
                                     </button>
@@ -112,7 +112,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
         return (
             <div className='comment-list'>
                 {filteredCommentList.map((comment) => (
-                    <div key={comment.comment_id} className="comment-item">
+                    <div key={comment.commentId} className="comment-item">
                         <Comment
                             userName={comment.userName}
                             userImage={comment.userImg}
