@@ -1,9 +1,9 @@
 import React from 'react';
 
-function VideoDisplay({ vid_src }) {
+function VideoDisplay({ videoSrc }) {
     return (
-        <video key={vid_src} autoplay="true" controls >
-            <source src={vid_src} type="video/mp4" />
+        <video key={videoSrc} autoplay="true" controls >
+            <source src={videoSrc} type="video/mp4" />
         </video>
     );
 }

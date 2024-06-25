@@ -19,9 +19,9 @@ function VideoList({ videoData }) {
                         </div>
                         <div className="video-details">
                             <h3 className="video-title">{video.title}</h3>
-                            <p className='video-meta'>{video.artist}</p>
+                            <p className='video-meta'>{video.userDisplay}</p>
                             <p className="video-meta">
-                                {video.views} views &bull; {video.publication_date}
+                                {video.views} views &bull; {video.publicationDate}
                             </p>
                         </div>
                     </div>

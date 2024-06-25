@@ -46,7 +46,7 @@ function Watch({ videoDataList, userDataList, loggedUser, setLoggedUser }) {
 
         <div className='left-block'>
           <div className='vid-display'>
-            <VideoDisplay vid_src={currentVideoFromVideoList.video_src}/>
+            <VideoDisplay videoSrc={currentVideoFromVideoList.videoSrc}/>
           </div>
           <div className='descriptions' key={intId}>
             <div className='vidTitle'>
@@ -60,9 +60,9 @@ function Watch({ videoDataList, userDataList, loggedUser, setLoggedUser }) {
               setLikesData={setLikesData}
             />
             <Details
-              details={currentVideoFromVideoList.details}
+              details={currentVideoFromVideoList.description}
               viewsNum={currentVideoFromVideoList.views}
-              uploadDate={currentVideoFromVideoList.publication_date}
+              uploadDate={currentVideoFromVideoList.publicationDate}
             />
             <div className='comment-section'>
               <CommentSection commentList={commentList} setCommentList={setCommentList} loggedUser={loggedUser}/>

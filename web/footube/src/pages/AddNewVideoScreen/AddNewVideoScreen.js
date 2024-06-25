@@ -22,14 +22,14 @@ function AddNewVideoScreen({ loggedUser, videos, setVideos, videoSerialNumber, s
     const uploadVideo = {
       id: videoSerialNumber,
       img: imgSrc ? URL.createObjectURL(imgSrc) : '',
-      video_src: videoSrc ? URL.createObjectURL(videoSrc) : '',
+      videoSrc: videoSrc ? URL.createObjectURL(videoSrc) : '',
       title: videoTitle,
-      artist: loggedUser.userName,
-      publication_date: date,
+      userDisplay: loggedUser.userName,
+      publicationDate: date,
       views: 0,
-      details: videoDescription,
+      description: videoDescription,
       likes: 0,
-      user_id: loggedUser.id
+      userId: loggedUser.id
     };
 
     setVideoSerialNumber(videoSerialNumber + 1);
