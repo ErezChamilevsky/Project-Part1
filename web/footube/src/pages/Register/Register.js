@@ -1,109 +1,91 @@
-
-import React, { useState } from 'react';
-import './Register.css'; 
+import React, { useState, useRef } from 'react';
+import './Register.css';
 import { Link } from 'react-router-dom';
 
-function Register({ users, setUsers, userSerialNumber , setUserSerialNumber }) {
-    const [formData, setFormData] = useState({   // hold the current user that register
+
+function Register() {
+
+    const fileInputRef = useRef(null);  // Create a ref for the file input element
+
+    const [errorMessages, setErrorMessages] = useState('')  // hold the error messages that return from the server  
+    const [successMessage, setSuccessMessage] = useState('')
+    const [newUser, setNewUser] = useState({   // hold the current user that register
         userName: '',
+        userPassword: '',
+        userConfirmPassword: '',
         displayName: '',
-        password: '',
-        confirmPassword: '',
-        imageFile: null,
-        imagePreview: null
+        userImgFile: null,
     });
-    const [errors, setErrors] = useState({}); //errors state
-    const [successMessage, setSuccessMessage] = useState('');
 
 
-    //function that update the fromData state. fromData holsds the deatils of current user who register now.
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    // function that update the user's image
-    const handleFileChange = (event) => { 
-        const file = event.target.files[0];
-        if (file) {
+        const { name, value, files } = event.target;
+        if (name === 'userImgFile') {  //handle with file input for userImgFile
+            const file = files[0];
             const reader = new FileReader();
             reader.onloadend = () => {
-                setFormData({ ...formData, imageFile: file, imagePreview: reader.result });
+                setNewUser({ ...newUser, [name]: reader.result });
             };
             reader.readAsDataURL(file);
+        } else {
+            setNewUser({ ...newUser, [name]: value });
         }
     };
 
-    //function who validate password
-    const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-        return passwordRegex.test(password);
-    };
 
-    // function add users to state
-    const handleSubmit = (event) => {
-        event.preventDefault();  //prevent refreshing the page
 
-        let formErrors = {};
-
-        if (!validatePassword(formData.password)) {
-            formErrors.password = "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number.";
-        }
-
-        if (formData.password !== formData.confirmPassword) {
-            formErrors.confirmPassword = "Password and Confirm Password fields do not match.";
-        }
-
-        if (Object.keys(formErrors).length > 0) {
-            setErrors(formErrors);
-            setSuccessMessage(''); // clear success message if there are errors
-            return;
-        }
-
-        // Add the new user to the users array
-        const newUser = {
-            userId: userSerialNumber,
-            userName: formData.userName,
-            userPassword: formData.password,
-            displayName: formData.displayName,
-            userImgFile: formData.imageFile ? URL.createObjectURL(formData.imageFile) : '',
-        };
-        setUserSerialNumber(userSerialNumber + 1);
-        setUsers([...users, newUser]);
+    const userRegister = async () => {
+        event.preventDefault();
+        try {
+            const response = await fetch('http://localhost:12345/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            });
+            const data = await response.json();
+            if (response.status === 409) {
+                setErrorMessages(data.message || '');  //extarct the error messages from the response
+                setSuccessMessage('');  //clear the success message
+            } else {  
+                setSuccessMessage(data.message || ''); //extarct the success message from the response}
+                setErrorMessages('');  //clear the error messages   
+                setNewUser({   //clear the input fields
+                    userName: '',
+                    userPassword: '',
+                    userConfirmPassword: '',
+                    displayName: '',
+                    userImgFile: null,
+                });
+                  fileInputRef.current.value = '';  // Clear the file input field
+        }  
         
-        // Clear the form
-        setFormData({
-            userName: '',
-            displayName: '',
-            password: '',
-            confirmPassword: '',
-            imageFile: null,
-            imagePreview: null
-        });
-
-        setErrors({});
-        setSuccessMessage('Registration completed successfully'); // set success message
+        } catch (error) {
+            console.log('Error during registration:', error);
+        }
     };
+
 
     return (
-        <div className="main-div"> 
-           <Link to='/login' className="cr-acc btn btn-info login-page-link">Login Page</Link>    
+        <div className="main-div">
+            <Link to='/login' className="cr-acc btn btn-info login-page-link">Login Page</Link>
             <div className="card">
                 <div className="card-body">
                     Sign in Form
                 </div>
             </div>
-            <div className="frame">  
-                <form onSubmit={handleSubmit}>
+            <div className="frame">
+                <form onSubmit={userRegister}>
                     <div className="form-group row sign-up-field">
                         <label htmlFor="userName" className="col-sm-2 col-form-label">UserName</label>
                         <div className="col-sm-10">
-                            <input 
-                                type="text" 
-                                className="form-control" 
+                            <input
+                                type="text"
+                                className="form-control"
                                 name="userName"
                                 placeholder="UserName"
-                                value={formData.userName}
+                                value={newUser.userName}
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -111,71 +93,79 @@ function Register({ users, setUsers, userSerialNumber , setUserSerialNumber }) {
                     <div className="form-group row sign-up-field">
                         <label htmlFor="displayName" className="col-sm-2 col-form-label">Display Name</label>
                         <div className="col-sm-10">
-                            <input 
-                                type="text" 
-                                className="form-control" 
+                            <input
+                                type="text"
+                                className="form-control"
                                 name="displayName"
                                 placeholder="The name that display at App"
-                                value={formData.displayName}
+                                value={newUser.displayName}
                                 onChange={handleInputChange}
                             />
                         </div>
                     </div>
                     <div className="form-group row sign-up-field">
-                        <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
+                        <label htmlFor="userPassword" className="col-sm-2 col-form-label">Password</label>
                         <div className="col-sm-10">
-                            <input 
-                                type="password" 
-                                className="form-control" 
-                                name="password"
+                            <input
+                                type="password"
+                                className="form-control"
+                                name="userPassword"
                                 placeholder="Password"
-                                value={formData.password}
+                                value={newUser.userPassword}
                                 onChange={handleInputChange}
                             />
-                            {errors.password && <small className="text-danger">{errors.password}</small>}
-                        </div>
-                        <div className="valid-feedback d-block">
-                            Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and the rest numbers.
                         </div>
                     </div>
                     <div className="form-group row sign-up-field">
-                        <label htmlFor="confirmPassword" className="col-sm-2 col-form-label">Confirm Password</label>
+                        <label htmlFor="userConfirmPassword" className="col-sm-2 col-form-label">Confirm Password</label>
                         <div className="col-sm-10">
-                            <input 
-                                type="password" 
-                                className="form-control" 
-                                name="confirmPassword"
+                            <input
+                                type="password"
+                                className="form-control"
+                                name="userConfirmPassword"
                                 placeholder="Confirm Password"
-                                value={formData.confirmPassword}
+                                value={newUser.userConfirmPassword}
                                 onChange={handleInputChange}
                             />
-                            {errors.confirmPassword && <small className="text-danger">{errors.confirmPassword}</small>}
                         </div>
                     </div>
                     <div className="form-group row sign-up-field">
-                        <label htmlFor="userImage" className="col-sm-2 col-form-label">Upload Image</label>
+                        <label htmlFor="userImgFile" className="col-sm-2 col-form-label">Upload Image</label>
                         <div className="col-sm-10">
-                            <input 
-                                type="file" 
-                                className="form-control" 
-                                id="userImage" 
-                                accept="image/*" 
-                                onChange={handleFileChange} 
+                            <input
+                                type="file"
+                                className="form-control"
+                                name="userImgFile"
+                                accept="image/*"
+                                ref={fileInputRef}  // Attach the ref to the file input
+                                onChange={handleInputChange}
                             />
-                            {formData.imagePreview && (
+                        </div>
+                    </div>
+                    {/*visulation of user profile image*/}
+                    {newUser.userImgFile && (
                                 <div className="preview">
-                                    <img src={formData.imagePreview} alt="Preview" className="img-preview" />
+                                    <img src={newUser.userImgFile} alt="Preview" className="img-preview" />
                                 </div>
                             )}
-                        </div>
-                    </div>
+                    {/*sign in button*/}
                     <div className="form-group row">
                         <div className="col-sm-10">
                             <button type="submit" className="btn btn-primary sign-in-btn">Sign in</button>
                         </div>
                     </div>
                 </form>
-                {/*visulation if registerion complete successfuly*/}
+                {/*visulation if registerion not complete successfuly*/}
+                {errorMessages && (
+                <div className="form-group row">
+                    <div className="col-sm-10">
+                        <small className="text-error" style={{ color: 'red', fontWeight: 'bold' }}>
+                            {errorMessages}
+                        </small>
+                    </div>
+                </div>
+            )}
+             {/*visulation if registerion complete successfuly*/}
                 {successMessage && (
                 <div className="form-group row">
                     <div className="col-sm-10">
@@ -185,7 +175,7 @@ function Register({ users, setUsers, userSerialNumber , setUserSerialNumber }) {
                     </div>
                 </div>
             )}
-            </div>        
+            </div>
         </div>
     );
 };
