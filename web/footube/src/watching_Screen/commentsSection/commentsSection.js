@@ -12,17 +12,21 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
     const [editIndex, setEditIndex] = useState(null);
     const [editCommentText, setEditCommentText] = useState("");
 
+
+
     const handleRemoveComment = (commentId) => {
         setCommentList(prevComments => prevComments.filter(comment => comment.commentId !== commentId));
     };
 
     const commentId = commentList.length > 0 ? commentList[commentList.length - 1].commentId + 1 : 1;
 
+    //filtering comments to present by vid_id
     useEffect(() => {
         if (vid_id && commentList) {
             setFilteredCommentList(commentList.filter(comment => comment.videoId === intId));
         }
     }, [vid_id, commentList]);
+
 
     const handleAddComment = (newComment) => {
         setCommentList(prevComments => [...prevComments, newComment]);

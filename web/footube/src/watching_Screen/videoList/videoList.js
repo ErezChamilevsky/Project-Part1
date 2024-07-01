@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './video-list.css';
+import './videoList.css';
 import { Link } from 'react-router-dom';
 
 function VideoList({ videoData }) {

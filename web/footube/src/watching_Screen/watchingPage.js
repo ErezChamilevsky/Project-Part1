@@ -1,12 +1,12 @@
 import './watchingPage.css';
-import Details from './details-section/details';
-import VideoList from './video-list/video-list';
-import CommentSection from './comments-section/commentsSection';
+import Details from './detailsSection/details';
+import VideoList from './videoList/videoList';
+import CommentSection from './commentsSection/commentsSection';
 import { useParams } from 'react-router-dom';
-import VideoDisplay from './video_display/videoDisplay';
+import VideoDisplay from './videoDisplay/videoDisplay';
 import React, { useState, useEffect } from 'react';
 import commentsDataList from '../data/comments.json';
-import LikesHandler from './like-toolbar/likesHandler';
+import LikesHandler from './likeToolbar/likesHandler';
 import SearchBar from '../pages/Homepage/searchBar/SearchBar';
 
 function Watch({ videoDataList, userDataList, loggedUser, setLoggedUser }) {

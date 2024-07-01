@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./like-toolbar.css";
+import "./likeToolbar.css";
 
 function LikeToolbar({ userName, userImg, likeCount, liked, disliked, handleLike, handleDislike }) {
     const [showModal, setShowModal] = useState(false);

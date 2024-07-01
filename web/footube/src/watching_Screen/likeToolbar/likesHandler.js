@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import LikeToolbar from './like-toolbar'; // Adjust the import path as needed
+import LikeToolbar from './likeToolbar'; // Adjust the import path as needed
 
 function LikesHandler({ userName, userImg, vidLikes, likesData, setLikesData }) {
     const { vid_id } = useParams();
