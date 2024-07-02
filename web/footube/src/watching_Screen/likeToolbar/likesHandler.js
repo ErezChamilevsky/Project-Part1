@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import LikeToolbar from './likeToolbar'; // Adjust the import path as needed
 
-function LikesHandler({ userName, userImg, vidLikes, likesData, setLikesData }) {
+function LikesHandler({userId, vidLikes, likesData, setLikesData }) {
     const { vid_id } = useParams();
     const intId = parseInt(vid_id, 10);
 
@@ -67,8 +67,7 @@ function LikesHandler({ userName, userImg, vidLikes, likesData, setLikesData }) 
     return (
         <div>
             <LikeToolbar
-                userName={userName}
-                userImg={userImg}
+                userId={userId}
                 likeCount={likeCount}
                 liked={liked}
                 disliked={disliked}
