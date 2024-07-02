@@ -37,7 +37,7 @@ function Details({ details, viewsNum, uploadDate }) {
             <div className="accordion">
                 <div className="accordion-item">
                     <button className={`accordion-header ${isActive ? 'active' : ''}`} onClick={toggleAccordion}>
-                        {viewsNum}, {timePassed}
+                        {viewsNum} views, {timePassed}
                     </button>
                     <div className="accordion-content" style={{ maxHeight: isActive ? '200px' : '0' }}>
                         <p>{details}</p>

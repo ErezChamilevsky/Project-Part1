@@ -29,8 +29,9 @@ function App() {
         <Route path="/login" element={ <Login users={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/> } />
         <Route path='/register' element={ <Register users={users} setUsers={setUsers} userSerialNumber={userSerialNumber} setUserSerialNumber={setUserSerialNumber}/> }></Route>
         <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen loggedUser={loggedUser} videos={videos} setVideos={setVideos} videoSerialNumber={videoSerialNumber} setVideoSerialNumber={setVideoSerialNumber} /> }></Route>
-        <Route path='/watch/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>} />
+        <Route path='/videos/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>} />
         <Route path='/updateUser' element={<UpdateUser loggedUser={loggedUser}  setLoggedUser={setLoggedUser}/>} />
+
       </Routes>
     </div>
 
