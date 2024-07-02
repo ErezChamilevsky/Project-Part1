@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
-
 import './login.css'; 
 
 
-function Login() {
+
+function Login({loggedUser, setLoggedUser}) {
 
     const [errorMessages, setErrorMessages] = useState('')  // hold the error messages that return from the server
-    const [loginUser, setLoginUser] = useState({userName: '', userPassword: ''});
+    const [loginUser, setLoginUser] = useState({userName: '', userPassword: ''}); //user that try to login
 
     const navigate = useNavigate(); // Initialize the navigate function
     
@@ -16,6 +16,35 @@ function Login() {
         setLoginUser({ ...loginUser, [name]: value });
         console.log(loginUser); // to check the login user object
         }
+
+    const getUserDetails = async () => {
+        try {
+            const response = await fetch('http://localhost:12345/api/users/' + loginUser.userName, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': 'bearer ' + localStorage.getItem('token') // attach the token
+                }
+            });
+            const data = await response.json();
+            if (response.status === 404) { //get user details faild
+                setErrorMessages(data.errors || '');  //extarct the error messages from the response
+            } else {  //get user details success
+                setErrorMessages('');  //clear the error messages 
+                setLoggedUser({
+                  userId: data.userId,
+                  userName: data.userName,
+                  displayName: data.displayName,
+                  userImgFile: data.userImgFile
+                }); // Save the user details in the state
+                console.log(data.userName)
+                console.log(loggedUser); // to check the user details object
+            }
+        } catch (error) {
+            console.log('Error during get user details:', error);
+        }
+    }   
+
 
 
     const handleLogin = async (event) => {
@@ -38,6 +67,7 @@ function Login() {
                   userName: '',
                   userPassword: '',   
                 });
+                getUserDetails() //here we need call to async function that fetch the users details from server
                 navigate('/'); // Navigate to the home page on successful login
         }  
         
