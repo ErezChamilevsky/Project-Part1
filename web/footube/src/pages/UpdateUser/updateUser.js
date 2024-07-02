@@ -1,16 +1,17 @@
 import React, { useState, useRef } from 'react';
-import './Register.css';
-import { Link } from 'react-router-dom';
+import './updateUser.css';
+import { Link, useNavigate} from 'react-router-dom';
 
 
-function Register() {
 
-    const fileInputRef = useRef(null);  // Create a ref for the file input element
+function UpdateUser({loggedUser, setLoggedUser}) {
+
+    const navigate = useNavigate();  // Initialize the navigate function
+    const fileInputRef = useRef(null);  // Create a ref for the file input element (userImgFile)
 
     const [errorMessages, setErrorMessages] = useState('')  // hold the error messages that return from the server  
     const [successMessage, setSuccessMessage] = useState('')
-    const [newUser, setNewUser] = useState({   // hold the current user that register
-        userName: '',
+    const [updateUser, setUpdateUser] = useState({   // hold the current user that register
         userPassword: '',
         userConfirmPassword: '',
         displayName: '',
@@ -24,45 +25,52 @@ function Register() {
             const file = files[0];
             const reader = new FileReader();
             reader.onloadend = () => {
-                setNewUser({ ...newUser, [name]: reader.result });
+                setUpdateUser({ ...updateUser, [name]: reader.result });
             };
             reader.readAsDataURL(file);
         } else {
-            setNewUser({ ...newUser, [name]: value });
+            setUpdateUser({ ...updateUser, [name]: value });
         }
     };
 
 
 
-    const userRegister = async (event) => {
+    const updateUserDetails = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:12345/api/users', {
-                method: 'POST',
+            const response = await fetch('http://localhost:12345/api/users/' + loggedUser.userId ,{
+                method: 'PATCH',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'authorization': 'bearer ' + localStorage.getItem('token') // attach the token
                 },
-                body: JSON.stringify(newUser)
+                body: JSON.stringify(updateUser)
             });
             const data = await response.json();
-            if (response.status === 409) {
+            if (response.status === 404) {
                 setErrorMessages(data.message || '');  //extarct the error messages from the response
                 setSuccessMessage('');  //clear the success message
-            } else {  
-                setSuccessMessage(data.message || ''); //extarct the success message from the response}
-                setErrorMessages('');  //clear the error messages   
-                setNewUser({   //clear the input fields
-                    userName: '',
+            } else { //update success 
+                setSuccessMessage(data.message || ''); //extarct the success message from the response
+                setErrorMessages('');  //clear the error messages
+                setLoggedUser({
+                    userId: loggedUser.userId,
+                    userName: loggedUser.userName,
+                    displayName: updateUser.displayName,
+                    userImgFile: updateUser.userImgFile,
+                });
+                setUpdateUser({   //clear the input fields
                     userPassword: '',
                     userConfirmPassword: '',
                     displayName: '',
                     userImgFile: null,
                 });
                   fileInputRef.current.value = '';  // Clear the file input field
+                  navigate('/'); // Navigate to the home page on successful login
         }  
         
         } catch (error) {
-            console.log('Error during registration:', error);
+            console.log('Error during details update:', error);
         }
     };
 
@@ -72,24 +80,11 @@ function Register() {
             <Link to='/login' className="cr-acc btn btn-info login-page-link">Login Page</Link>
             <div className="card">
                 <div className="card-body">
-                    Sign in Form
+                    update user details
                 </div>
             </div>
             <div className="frame">
-                <form onSubmit={userRegister}>
-                    <div className="form-group row sign-up-field">
-                        <label htmlFor="userName" className="col-sm-2 col-form-label">UserName</label>
-                        <div className="col-sm-10">
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="userName"
-                                placeholder="UserName"
-                                value={newUser.userName}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                    </div>
+                <form onSubmit={updateUserDetails}>
                     <div className="form-group row sign-up-field">
                         <label htmlFor="displayName" className="col-sm-2 col-form-label">Display Name</label>
                         <div className="col-sm-10">
@@ -98,7 +93,7 @@ function Register() {
                                 className="form-control"
                                 name="displayName"
                                 placeholder="The name that display at App"
-                                value={newUser.displayName}
+                                value={updateUser.displayName}
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -111,7 +106,7 @@ function Register() {
                                 className="form-control"
                                 name="userPassword"
                                 placeholder="Password"
-                                value={newUser.userPassword}
+                                value={updateUser.userPassword}
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -124,7 +119,7 @@ function Register() {
                                 className="form-control"
                                 name="userConfirmPassword"
                                 placeholder="Confirm Password"
-                                value={newUser.userConfirmPassword}
+                                value={updateUser.userConfirmPassword}
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -143,19 +138,19 @@ function Register() {
                         </div>
                     </div>
                     {/*visulation of user profile image*/}
-                    {newUser.userImgFile && (
+                    {updateUser.userImgFile && (
                                 <div className="preview">
-                                    <img src={newUser.userImgFile} alt="Preview" className="img-preview" />
+                                    <img src={updateUser.userImgFile} alt="Preview" className="img-preview" />
                                 </div>
                             )}
                     {/*sign in button*/}
                     <div className="form-group row">
                         <div className="col-sm-10">
-                            <button type="submit" className="btn btn-primary sign-in-btn">Sign in</button>
+                            <button type="submit" className="btn btn-primary sign-in-btn">Update</button>
                         </div>
                     </div>
                 </form>
-                {/*visulation if registerion not complete successfuly*/}
+                {/*visulation if update not complete successfuly*/}
                 {errorMessages && (
                 <div className="form-group row">
                     <div className="col-sm-10">
@@ -165,7 +160,7 @@ function Register() {
                     </div>
                 </div>
             )}
-             {/*visulation if registerion complete successfuly*/}
+             {/*visulation if update complete successfuly*/}
                 {successMessage && (
                 <div className="form-group row">
                     <div className="col-sm-10">
@@ -180,4 +175,4 @@ function Register() {
     );
 };
 
-export default Register;
+export default UpdateUser;
