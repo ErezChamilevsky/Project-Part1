@@ -78,7 +78,8 @@ if(!loggedUser){
             <div className="header__icons_Homepage">
                 
                <div><Link to='/addNewVideoScreen' className="cr-acc btn btn-info registerButton">Add New Video</Link></div>    
-                <div><Link to='/login' className="cr-acc btn btn-info registerButton login-btn">Login</Link></div>  
+                <div><Link to='/login' className="cr-acc btn btn-info registerButton login-btn">Login</Link></div>
+                <div><Link to='/updateUser' className="cr-acc btn btn-info registerButton login-btn">Update Details</Link></div>    
                 <div><button onClick={handleLogOut} className="cr-acc btn btn-info registerButton">Log Out</button></div>
 
                 {/* this lines display the userName and the image in right side of search bar*/}
