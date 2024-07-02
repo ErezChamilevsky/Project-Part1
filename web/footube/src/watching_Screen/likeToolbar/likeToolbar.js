@@ -8,7 +8,7 @@ function LikeToolbar({ userId, likeCount, liked, disliked, handleLike, handleDis
 
     const getUploaderDetails = async (userId) => {
         try {
-            const response = await fetch('http://localhost:12345/api/users/' + userId, {
+            const response = await fetch('http://localhost:12345/api/videos/users/' + userId, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
