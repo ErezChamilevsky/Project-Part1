@@ -34,7 +34,7 @@ function Register() {
 
 
 
-    const userRegister = async () => {
+    const userRegister = async (event) => {
         event.preventDefault();
         try {
             const response = await fetch('http://localhost:12345/api/users', {
