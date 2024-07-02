@@ -20,6 +20,8 @@ function SearchBar({setCurrentVideos, loggedUser, setLoggedUser}) {
     }
 
     function handleLogOut(){
+        localStorage.removeItem('token'); // Clears a token of logges user from local storage
+        console.log(localStorage.getItem('token')); //check if the token is removed
         setLoggedUser(null);
     }
 
