@@ -8,7 +8,6 @@ import VideoDisplay from './videoDisplay/videoDisplay';
 import SearchBar from '../pages/Homepage/searchBar/SearchBar';
 import LikesHandler from './likeToolbar/likesHandler';
 
-
 function Watch({ userDataList, loggedUser, setLoggedUser }) {
   const { vid_id } = useParams();
   const intId = parseInt(vid_id, 10);
@@ -23,15 +22,35 @@ function Watch({ userDataList, loggedUser, setLoggedUser }) {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      if (data.errors && data.errors.includes('Video not found')) {
-        return null;  // Return null if video is not found
+      if (response.ok) {
+        return data; //data is a specific video (who has intId as id)
+      } else {
+        throw new Error(data.errors || 'Failed to fetch video');
       }
-      return data; //data is a specific video (who has intId as id)
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error fetching video:', error);
       return null;
     }
   }
+
+  useEffect(() => {
+    async function fetchComments() {
+      const url = `http://localhost:12345/api/videos/${intId}/comments`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if (response.ok) {
+          setCommentList(data);
+        } else {
+          throw new Error(data.errors || 'Failed to fetch comments');
+        }
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      }
+    }
+
+    fetchComments();
+  }, [intId]);
 
   useEffect(() => {
     setIsLoading(true);

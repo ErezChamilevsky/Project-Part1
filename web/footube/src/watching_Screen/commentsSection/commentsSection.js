@@ -15,29 +15,76 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
 
 
     const handleRemoveComment = (commentId) => {
+        deleteComment(commentId);
         setCommentList(prevComments => prevComments.filter(comment => comment.commentId !== commentId));
     };
 
-    const commentId = commentList.length > 0 ? commentList[commentList.length - 1].commentId + 1 : 1;
+    async function deleteComment(commentId) {
+        try {
+            const response = await fetch(`http://localhost:12345/api/videos/${intId}/comments/${commentId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    'authorization': 'bearer ' + localStorage.getItem('token')
+                },
+            });
+            if (!response.ok) {
+                throw new Error('Failed to delete comment');
+            }
+            const comment = await response.json();
+            return comment;
+        } catch (error) {
+            console.error('Error deleting comment:', error);
+        }
+    }
+
+    async function updateComment(commentId, content) {
+        try {
+            const response = await fetch(`http://localhost:12345/api/videos/${intId}/comments/${commentId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    'authorization': 'bearer ' + localStorage.getItem('token')
+                }, 
+                body: JSON.stringify({
+                    content: content,
+                })
+            });
+            if (!response.ok) {
+                throw new Error('Failed to delete comment');
+            }
+            const comment = await response.json();
+            return comment;
+        } catch (error) {
+            console.error('Error deleting comment:', error);
+        }
+    }
 
     //filtering comments to present by vid_id
     useEffect(() => {
-        if (vid_id && commentList) {
+        if (intId && commentList) {
             setFilteredCommentList(commentList.filter(comment => comment.videoId === intId));
         }
-    }, [vid_id, commentList]);
+    }, [intId, commentList]);
 
 
     const handleAddComment = (newComment) => {
         setCommentList(prevComments => [...prevComments, newComment]);
     };
 
-    const handleEditComment = (index) => {
+    const handleEditComment = async (index) => {
+        const commentId = commentList[index].commentId; // Get commentId of the comment being edited
         const updatedComments = [...commentList];
-        updatedComments[index].content = editCommentText;
-        setCommentList(updatedComments);
-        setEditIndex(null);
-        setEditCommentText("");
+
+        try {
+            await updateComment(commentId, editCommentText); // Pass commentId and new content to updateComment
+            updatedComments[index].content = editCommentText;
+            setCommentList(updatedComments);
+            setEditIndex(null);
+            setEditCommentText("");
+        } catch (error) {
+            console.error('Error updating comment:', error);
+        }
     };
 
     const handleCancelEdit = () => {
@@ -51,7 +98,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
 
         return (
             <div>
-                <AddComment addComment={handleAddComment} commentId={commentId} loggedUser={loggedUser} />
+                <AddComment addComment={handleAddComment} loggedUser={loggedUser} />
                 <div className='comment-list'>
                     {filteredCommentList.map((comment, index) => (
                         <div key={comment.commentId} className="comment-item">
@@ -83,8 +130,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                             ) : (
                                 <div>
                                     <Comment
-                                        userName={comment.userName}
-                                        userImage={comment.userImg}
+                                        userId={comment.userId}
                                         comment={comment.content}
                                     />
                                     <button
@@ -118,8 +164,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                 {filteredCommentList.map((comment) => (
                     <div key={comment.commentId} className="comment-item">
                         <Comment
-                            userName={comment.userName}
-                            userImage={comment.userImg}
+                            userId={comment.userId}
                             comment={comment.content}
                         />
                     </div>

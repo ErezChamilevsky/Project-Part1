@@ -6,8 +6,7 @@ import SideBar from "./sideBar/SideBar";
 import React, {useState,useEffect} from 'react'
 
 
-
-function Homepage({loggedUser,setLoggedUser, currentVideos, setCurrentVideos}) {
+function Homepage({ loggedUser, setLoggedUser, currentVideos, setCurrentVideos }) {
 
 useEffect(() => {
     const getDefaultVideos = async () => {
@@ -59,7 +58,7 @@ useEffect(() => {
 
                 {/* <!-- Header Starts --> */}
 
-                <SearchBar setCurrentVideos={setCurrentVideos} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
+                <SearchBar setCurrentVideos={setCurrentVideos} loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
 
                 {/* <!-- Header Ends --> */}
 
@@ -67,7 +66,7 @@ useEffect(() => {
                 <div className="mainBody_Homepage">
                     {/* <!-- Sidebar Starts --> */}
 
-                    <SideBar/>
+                    <SideBar loggedUser={loggedUser} />
 
                     {/* <!-- Sidebar Ends --> */}
 
