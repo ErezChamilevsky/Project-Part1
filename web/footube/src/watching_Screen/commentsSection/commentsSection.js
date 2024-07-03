@@ -12,7 +12,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
     const [editIndex, setEditIndex] = useState(null);
     const [editCommentText, setEditCommentText] = useState("");
 
-
+    
 
     const handleRemoveComment = (commentId) => {
         setCommentList(prevComments => prevComments.filter(comment => comment.commentId !== commentId));
