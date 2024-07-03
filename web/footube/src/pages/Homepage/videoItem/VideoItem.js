@@ -6,7 +6,7 @@ function VideoItem(videos) {
 
     return (
         <div className="video_Homepage">
-            <Link key={videos.id} to={`videos/${videos.id}`}>
+            <Link key={videos.id} to={`/videos/${videos.id}`}>
                 <div className="video__thumbnail_Homepage" >
 
                     <img src={videos.img} />

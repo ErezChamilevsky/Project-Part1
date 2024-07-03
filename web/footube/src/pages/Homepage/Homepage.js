@@ -3,11 +3,11 @@ import './Homepage.css'
 import videos from '../../data/vid.json'
 import SearchBar from './searchBar/SearchBar';
 import SideBar from "./sideBar/SideBar";
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 
 
-function Homepage({loggedUser,setLoggedUser, currentVideos, setCurrentVideos}) {
+function Homepage({ loggedUser, setLoggedUser, currentVideos, setCurrentVideos }) {
 
 
     const videoList = currentVideos.map((video, key) => {
@@ -33,7 +33,7 @@ function Homepage({loggedUser,setLoggedUser, currentVideos, setCurrentVideos}) {
 
                 {/* <!-- Header Starts --> */}
 
-                <SearchBar setCurrentVideos={setCurrentVideos} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
+                <SearchBar setCurrentVideos={setCurrentVideos} loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
 
                 {/* <!-- Header Ends --> */}
 
@@ -41,7 +41,7 @@ function Homepage({loggedUser,setLoggedUser, currentVideos, setCurrentVideos}) {
                 <div className="mainBody_Homepage">
                     {/* <!-- Sidebar Starts --> */}
 
-                    <SideBar/>
+                    <SideBar loggedUser={loggedUser} />
 
                     {/* <!-- Sidebar Ends --> */}
 
