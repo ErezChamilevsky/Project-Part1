@@ -10,6 +10,7 @@ import AddNewVideoScreen from './pages/AddNewVideoScreen/AddNewVideoScreen.js';
 import Homepage from './pages/Homepage/Homepage.js';
 import UpdateUser from './pages/UpdateUser/updateUser.js';
 import React, { useState } from 'react';
+import UserPage from './pages/userPage/userPage.js';
 import { useEffect } from 'react';
 
 
@@ -22,20 +23,21 @@ function App() {
   const [videos, setVideos] = useState(vidData);
 
   return (
-          
+
     <div>
       <Routes>
-        <Route path="/" element= {<Homepage loggedUser={loggedUser} setLoggedUser={setLoggedUser} currentVideos={videos} setCurrentVideos={setVideos} />}/>
-        <Route path="/login" element={ <Login users={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/> } />
-        <Route path='/register' element={ <Register users={users} setUsers={setUsers} userSerialNumber={userSerialNumber} setUserSerialNumber={setUserSerialNumber}/> }></Route>
-        <Route path='/addNewVideoScreen' element={ < AddNewVideoScreen loggedUser={loggedUser} videos={videos} setVideos={setVideos} videoSerialNumber={videoSerialNumber} setVideoSerialNumber={setVideoSerialNumber} /> }></Route>
-        <Route path='/videos/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>} />
-        <Route path='/updateUser' element={<UpdateUser loggedUser={loggedUser}  setLoggedUser={setLoggedUser}/>} />
+        <Route path="/" element={<Homepage loggedUser={loggedUser} setLoggedUser={setLoggedUser} currentVideos={videos} setCurrentVideos={setVideos} />} />
+        <Route path="/login" element={<Login users={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser} />} />
+        <Route path='/register' element={<Register users={users} setUsers={setUsers} userSerialNumber={userSerialNumber} setUserSerialNumber={setUserSerialNumber} />}></Route>
+        <Route path='/addNewVideoScreen' element={< AddNewVideoScreen loggedUser={loggedUser} videos={videos} setVideos={setVideos} videoSerialNumber={videoSerialNumber} setVideoSerialNumber={setVideoSerialNumber} />}></Route>
+        <Route path='/videos/:vid_id' element={<Watch videoDataList={videos} userDataList={users} loggedUser={loggedUser} setLoggedUser={setLoggedUser} />} />
+        <Route path='/updateUser' element={<UpdateUser loggedUser={loggedUser} setLoggedUser={setLoggedUser} />} />
+        <Route path="/userPage/:user_id" element={<UserPage loggedUser={loggedUser} setLoggedUser={setLoggedUser} />} />
 
       </Routes>
     </div>
 
-    
+
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./likeToolbar.css";
+import { Link } from 'react-router-dom';
 
 function LikeToolbar({ userId, likeCount, liked, disliked, handleLike, handleDislike }) {
     const [showModal, setShowModal] = useState(false);
@@ -51,12 +52,17 @@ function LikeToolbar({ userId, likeCount, liked, disliked, handleLike, handleDis
     return (
         <div className="bar">
             {uploader && (
-                <div className="left-content-tool">
-                    <img className="card-image" src={uploader.userImgFile} alt="User" />
-                    <div className="card-details">
-                        <h1 className="card-name">{uploader.displayName}</h1>
+                
+                    <Link to={`/userPage/${uploader.userId}`}>
+                    <div className="left-content-tool">
+                        <img className="card-image" src={uploader.userImgFile} alt="User" />
+                        
+                        <div className="card-details">
+                            <h1 className="card-name">{uploader.displayName}</h1>
+                        </div>
                     </div>
-                </div>
+                    </Link>
+               
             )}
 
             {errorMessage && <div className="error-message">{errorMessage}</div>}
