@@ -20,7 +20,7 @@ function App() {
   const [userSerialNumber, setUserSerialNumber] = useState(3);
   const [videoSerialNumber, setVideoSerialNumber] = useState(11);
   const [users, setUsers] = useState(userDataList);
-  const [videos, setVideos] = useState(vidData);
+  const [videos, setVideos] = useState([]);
 
   return (
 

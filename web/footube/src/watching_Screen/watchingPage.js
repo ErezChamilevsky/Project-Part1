@@ -23,7 +23,7 @@ function Watch({ userDataList, loggedUser, setLoggedUser }) {
       const response = await fetch(url);
       const data = await response.json();
       if (response.ok) {
-        return data;
+        return data; //data is a specific video (who has intId as id)
       } else {
         throw new Error(data.errors || 'Failed to fetch video');
       }
@@ -55,7 +55,7 @@ function Watch({ userDataList, loggedUser, setLoggedUser }) {
   useEffect(() => {
     setIsLoading(true);
     getVideo(intId).then(videoData => {
-      setCurrentVideo(videoData);
+      setCurrentVideo(videoData); //set the current video to the video who get from the server
       setIsLoading(false);
 
       // Initialize likes data for the current video
