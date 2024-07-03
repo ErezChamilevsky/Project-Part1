@@ -26,7 +26,7 @@ function Watch({ userDataList, loggedUser, setLoggedUser }) {
       if (data.errors && data.errors.includes('Video not found')) {
         return null;  // Return null if video is not found
       }
-      return data;
+      return data; //data is a specific video (who has intId as id)
     } catch (error) {
       console.error('Error:', error);
       return null;
@@ -36,7 +36,7 @@ function Watch({ userDataList, loggedUser, setLoggedUser }) {
   useEffect(() => {
     setIsLoading(true);
     getVideo(intId).then(videoData => {
-      setCurrentVideo(videoData);
+      setCurrentVideo(videoData); //set the current video to the video who get from the server
       setIsLoading(false);
 
       // Initialize likes data for the current video
