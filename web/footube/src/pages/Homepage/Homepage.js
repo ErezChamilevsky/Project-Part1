@@ -3,16 +3,42 @@ import './Homepage.css'
 import videos from '../../data/vid.json'
 import SearchBar from './searchBar/SearchBar';
 import SideBar from "./sideBar/SideBar";
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 
 
 
 function Homepage({loggedUser,setLoggedUser, currentVideos, setCurrentVideos}) {
 
+useEffect(() => {
+    const getDefaultVideos = async () => {
+        try {
+            const response = await fetch('http://localhost:12345/api/videos', {
+                method: 'GET',
+                
+            });
+            const data = await response.json();
+            console.log(data);
+            if (response.status === 404) { //get default video faild
+                setErrorMessages(data.errors || '');  //extarct the error messages from the response
+            } else {  //get default video success
+                setCurrentVideos(data)  //set the videos who get from server to the current videos
+            }
+        
+        } catch (error) {
+            console.log('Error during upload video:', error);
+        }
+      }
 
-    const videoList = currentVideos.map((video, key) => {
-        return <VideoItem {...video} />
-    })
+      getDefaultVideos();
+    }, []); // Empty dependency array means this runs once when the component mounts
+      
+        
+ 
+
+
+    const videoList = currentVideos.map((video) => 
+          <VideoItem {...video} />
+    )
 
 
     return (
