@@ -52,14 +52,17 @@ function LikeToolbar({ userId, likeCount, liked, disliked, handleLike, handleDis
     return (
         <div className="bar">
             {uploader && (
-                <div className="left-content-tool">
+                
                     <Link to={`/userPage/${uploader.userId}`}>
+                    <div className="left-content-tool">
                         <img className="card-image" src={uploader.userImgFile} alt="User" />
+                        
                         <div className="card-details">
                             <h1 className="card-name">{uploader.displayName}</h1>
                         </div>
+                    </div>
                     </Link>
-                </div>
+               
             )}
 
             {errorMessage && <div className="error-message">{errorMessage}</div>}
