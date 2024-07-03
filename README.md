@@ -1,14 +1,5 @@
-Run the part one from branch 'main'.
+Part 2 - this is just the client-side code, it would not run whithout runnig a server in parallel. 
 
-To get to the directory type in CL "cd web/footube".
-Should be in the project directory (footube) and in the CL "npm install" in order to install the modules.
-In order to running it type in CL "npm start".
+This is just to see the adjustment react code for the client-server model.
 
-
-Erez - implemted the watching screenand the recycler views.
-
-Itzhak - implemented the login, register and add new video screens.
-
-San - homepage screen, search and toolbar.
-
-Merged the brnaches to the master by pull requested. Exceptionals were where we were together.
+To run the code, you should go to the server repository and follow the readme instructions there.
