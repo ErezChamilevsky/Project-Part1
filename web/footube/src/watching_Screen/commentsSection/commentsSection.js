@@ -83,8 +83,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                             ) : (
                                 <div>
                                     <Comment
-                                        userName={comment.userName}
-                                        userImage={comment.userImg}
+                                        userId={comment.userId}
                                         comment={comment.content}
                                     />
                                     <button
@@ -118,8 +117,7 @@ function CommentSection({ commentList, setCommentList, loggedUser }) {
                 {filteredCommentList.map((comment) => (
                     <div key={comment.commentId} className="comment-item">
                         <Comment
-                            userName={comment.userName}
-                            userImage={comment.userImg}
+                            userId={comment.userId}
                             comment={comment.content}
                         />
                     </div>
