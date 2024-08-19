@@ -27,6 +27,7 @@ function SearchBar({setCurrentVideos, loggedUser, setLoggedUser}) {
 
     //this function show pop up message to confirm the user want to delete the account
     function checkIfDeleteUser(){
+        // eslint-disable-next-line no-restricted-globals
         var userConfirmed = confirm("Are you sure you want to delete your account?");
         if (userConfirmed) {
             // Proceed with deleting the user account
@@ -50,8 +51,10 @@ function SearchBar({setCurrentVideos, loggedUser, setLoggedUser}) {
             });
             const data = await response.json();
             if (response.status === 404) {
+                // eslint-disable-next-line no-restricted-globals
                 var serverMsg = confirm(data.message) //extarct the server messages from the response
             } else { //update success 
+                // eslint-disable-next-line no-restricted-globals
                 var serverMsg = confirm(data.message) //extarct the server messages from the response
                 setLoggedUser(null); //set logged user to null
                 localStorage.removeItem('token'); // Clears a token of logges user from local storage     

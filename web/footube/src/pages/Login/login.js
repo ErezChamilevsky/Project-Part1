@@ -30,6 +30,7 @@ function Login({loggedUser, setLoggedUser}) {
             if (response.status === 404) { //get user details faild
                 setErrorMessages(data.errors || '');  //extarct the error messages from the response
             } else {  //get user details success
+                localStorage.setItem('userId',data.userId); // Save the user details in local storage
                 setErrorMessages('');  //clear the error messages 
                 setLoggedUser({
                   userId: data.userId,
