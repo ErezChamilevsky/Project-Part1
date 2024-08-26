@@ -8,6 +8,9 @@ import React, {useState,useEffect} from 'react'
 
 function Homepage({ loggedUser, setLoggedUser, currentVideos, setCurrentVideos }) {
 
+const[errorMessages, setErrorMessages] = useState('');
+
+
 useEffect(() => {
     const getDefaultVideos = async () => {
         try {
