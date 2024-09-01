@@ -17,8 +17,9 @@ function Watch({ userDataList, loggedUser, setLoggedUser }) {
   const [commentList, setCommentList] = useState([]);
   const [likesData, setLikesData] = useState({});
 
+  //adding a param of loggedUser
   async function getVideo(intId) {
-    const url = `http://localhost:12345/api/videos/${intId}`;
+    const url = `http://localhost:12345/api/videos/${intId}?loggedUser=${encodeURIComponent(loggedUser)}`;
     try {
       const response = await fetch(url);
       const data = await response.json();
