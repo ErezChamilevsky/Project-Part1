@@ -6,9 +6,9 @@ function VideoList() {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        // Fetch random videos from the server
+        // Fetch videos from the server
         async function fetchRandomVideos() {
-            const url = 'http://localhost:12345/api/videos/randomVideos';
+            const url = 'http://localhost:12345/api/videos/';
             try {
                 const response = await fetch(url);
                 const data = await response.json();
