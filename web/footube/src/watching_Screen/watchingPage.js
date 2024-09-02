@@ -19,7 +19,13 @@ function Watch({ userDataList, loggedUser, setLoggedUser }) {
 
   //adding a param of loggedUser
   async function getVideo(intId) {
-    const url = `http://localhost:12345/api/videos/${intId}?loggedUser=${encodeURIComponent(loggedUser)}`;
+    let url;
+    if (loggedUser && loggedUser.userId) {
+      url = `http://localhost:12345/api/videos/${intId}?loggedUser=${loggedUser.userId}`;
+    } else {
+      url = `http://localhost:12345/api/videos/${intId}?loggedUser=-1`;
+    }
+    console.log(url);
     try {
       const response = await fetch(url);
       const data = await response.json();
